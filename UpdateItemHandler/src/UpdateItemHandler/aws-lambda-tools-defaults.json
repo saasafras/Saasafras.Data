@@ -15,5 +15,5 @@
   "function-runtime":"dotnetcore2.0",
   "function-memory-size" : 256,
   "function-timeout" : 30,
-  "function-handler" : "PodioDatabaseHandlers::PodioDatabaseHandlers.Function::FunctionHandler"
+  "function-handler" : "UpdateItemHandler::UpdateItemHandler.Function::FunctionHandler"
 }
