@@ -20,7 +20,7 @@ namespace BrickBridge.Lambda.MySql
         /// <summary>
         /// ?podioAppId
         /// </summary>
-        public const string SELECT_APP_FIELDS = @"SELECT PodioFieldId, ExternalId, Type FROM PodioAppView WHERE PodioAppId = ?podioAppId;";
+        public const string SELECT_APP_FIELDS = @"SELECT v.PodioFieldId, v.ExternalId, v.`Type` FROM podioTest.PodioAppView v WHERE PodioAppId = ?podioAppId;";
         /// <summary>
         /// ?podioAppId,?itemId,?revision,?clientId,?envId
         /// </summary>
@@ -61,7 +61,7 @@ namespace BrickBridge.Lambda.MySql
         /// <summary>
         /// ?fieldId,?memberId,?itemId
         /// </summary>
-        //public const string INSERT_MEMBER_DATA = @"INSERT INTO podioTest.MemberFieldData(PodioFieldId,MemberId,PodioItemId) VALUES(?fieldId,?memberId,?itemId);";
+        public const string INSERT_MEMBER_DATA = @"INSERT INTO podioTest.MemberFieldData(PodioFieldId,MemberId,PodioItemId) VALUES(?fieldId,?memberId,?itemId);";
         ///// <summary>
         ///// ?fieldId,?amount,?currency,?itemId
         ///// </summary>
