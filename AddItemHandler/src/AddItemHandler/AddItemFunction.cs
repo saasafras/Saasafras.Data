@@ -45,7 +45,12 @@ namespace BrickBridge.Lambda
                 context.Logger.LogLine($"Item has {input.currentItem.Fields.Count} fields to insert.");
                 foreach (var field in input.currentItem.Fields)
                 {
-                    //if the field matches a field defined for this app, insert the field data
+					//if the field matches a field defined for this app, insert the field data
+					if (!appFields.Any(a => a.ExternalId == field.ExternalId && a.Type == field.Type))
+					{
+						context.Logger.LogLine($"Field {field.ExternalId} was not found in the PodioFields table.");
+						continue;
+					}
                     var appField = appFields.First(a => a.ExternalId == field.ExternalId && a.Type == field.Type);
                     context.Logger.LogLine($"Inserting field {field.ExternalId} for item {input.currentItem.ItemId}");
                     switch (field.Type)
