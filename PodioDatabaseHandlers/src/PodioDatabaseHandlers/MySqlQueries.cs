@@ -26,6 +26,10 @@ namespace BrickBridge.Lambda.MySql
         /// </summary>
         public const string INSERT_ITEM = @"INSERT INTO PodioItem(PodioAppId,ItemId,Revision,ClientId,EnvId) VALUES(?podioAppId,?itemId,?revision,?clientId,?envId);";
         /// <summary>
+        /// ?podioAppId,?itemId,?revision,?clientId,?envId
+        /// </summary>
+		public const string UPDATE_ITEM = @"UPDATE PodioItem SET Revision = ?revision WHERE `PodioAppId`=?podioAppId AND `itemId`=?itemId AND `ClientId`=?clientId AND `envId`=?envId;";
+        /// <summary>
         /// ?spaceName,?bbcAppId
         /// </summary>
         public const string SELECT_SPACE_ID = @"SELECT Id FROM PodioSpace WHERE PodioSpaceName = ?spaceName AND BbcAppId = ?bbcAppId;";
@@ -33,7 +37,7 @@ namespace BrickBridge.Lambda.MySql
         /// ?bbcAppId,?version
         /// </summary>
         public const string SELECT_BBCAPP_ID = @"SELECT Id FROM BbcApp WHERE BbcAppId = ?bbcAppId AND Version = ?version;";
-
+        
         /// <summary>
         /// returns new id
         /// </summary>

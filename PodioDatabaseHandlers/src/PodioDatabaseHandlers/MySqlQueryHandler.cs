@@ -12,6 +12,7 @@ namespace BrickBridge.Lambda.MySql
         private ILambdaContext _context;
         private string _connStr = System.Environment.GetEnvironmentVariable("PODIO_DB_CONNECTION_STRING");
         private MySqlConnection _conn;
+		private MySqlTransaction _trans;
 
         public MySqlQueryHandler(ILambdaContext context, string connectionString = null)
         {
@@ -87,6 +88,11 @@ namespace BrickBridge.Lambda.MySql
             return (Int32)result;
         }
 
+        public MySqlTransaction StartTransaction()
+		{
+			return _conn.BeginTransaction();
+		}
+
         public async Task<Int32> GetPodioAppId(string bbcApp, string version, string spaceName, string appName)
         {
             var cmd = new MySqlCommand(MySqlQueries.SELECT_APP_ID, _conn);
@@ -99,7 +105,20 @@ namespace BrickBridge.Lambda.MySql
             return podioAppId;
         }
 
-        public async Task<UInt64> InsertPodioItem(Int32 podioAppId, int itemId, int revision, string clientId, string envId)
+		public async Task<UInt64> InsertPodioItem(Int32 podioAppId, int itemId, int revision, string clientId, string envId)
+        {
+            var cmd = new MySqlCommand(MySqlQueries.INSERT_ITEM + MySqlQueries.GET_ID, _conn);
+            cmd.Parameters.Add("?podioAppId", MySqlDbType.Int32).Value = podioAppId;
+            cmd.Parameters.Add("?itemId", MySqlDbType.Int32).Value = itemId;
+            cmd.Parameters.Add("?revision", MySqlDbType.Int32).Value = revision;
+            cmd.Parameters.Add("?clientId", MySqlDbType.VarChar).Value = clientId;
+            cmd.Parameters.Add("?envId", MySqlDbType.VarChar).Value = envId;
+            var newItemId = await ExecuteUInt64(cmd);
+            _context.Logger.LogLine($"PodioItemId = {newItemId}");
+            return newItemId;
+        }
+
+		public async Task<UInt64> UpdatePodioItem(Int32 podioAppId, int itemId, int revision, string clientId, string envId)
         {
             var cmd = new MySqlCommand(MySqlQueries.INSERT_ITEM + MySqlQueries.GET_ID, _conn);
             cmd.Parameters.Add("?podioAppId", MySqlDbType.Int32).Value = podioAppId;

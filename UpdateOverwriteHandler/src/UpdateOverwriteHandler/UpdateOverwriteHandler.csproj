@@ -3,18 +3,11 @@
   <PropertyGroup>
     <TargetFramework>netcoreapp2.0</TargetFramework>
     <GenerateRuntimeConfigurationFiles>true</GenerateRuntimeConfigurationFiles>
-    <PackOnBuild>true</PackOnBuild>
-    <PackageId>Saasafras.Database</PackageId>
-    <PackageVersion>0.0.4</PackageVersion>
-    <Authors>Saasafras</Authors>
-    <Description>Library for writing Podio data to RDBMs</Description>
   </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="Amazon.Lambda.Core" Version="1.0.0" />
     <PackageReference Include="Amazon.Lambda.Serialization.Json" Version="1.1.0" />
-    <PackageReference Include="MySql.Data" Version="6.10.6" />
-    <PackageReference Include="NuGet.Build.Packaging" Version="0.2.0" />
   </ItemGroup>
 
   <ItemGroup>
