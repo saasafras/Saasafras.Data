@@ -19,21 +19,21 @@ namespace BrickBridge.Lambda
             context.Logger.LogLine($"AppId: {input.appId}");
             context.Logger.LogLine($"ClientId: {input.clientId}");
             ILambdaSerializer serializer = new Amazon.Lambda.Serialization.Json.JsonSerializer();
-            BrickBridge.Models.Podio.Item _item;
+            //BrickBridge.Models.Podio.Item _item;
             using(var stream = new System.IO.MemoryStream())
             {
                 serializer.Serialize<Item>(input.currentItem, stream);
                 var inputText = System.Text.Encoding.UTF8.GetString(stream.ToArray());
                 context.Logger.LogLine($"Input: {inputText}");
-                stream.Position = 0;
-                _item = serializer.Deserialize<Models.Podio.Item>(stream);
+                //stream.Position = 0;
+                //_item = serializer.Deserialize<Models.Podio.Item>(stream);
             }
 
-            context.Logger.LogLine($"SpaceId: {_item.app.space_id}");
+			var spaceId = input.currentItem.App.SpaceId.Value;
+            context.Logger.LogLine($"SpaceId: {spaceId}");
             var deployment = input.currentEnvironment.apps.First(a => a.appId == input.appId);
-            var spaceName = deployment.deployedSpaces.First(kv => kv.Value == _item.app.space_id.ToString()).Key;
+            var spaceName = deployment.deployedSpaces.First(kv => kv.Value == spaceId.ToString()).Key;
              
-
             var appName = input.currentItem.App.Name;
 
             using (var _mysql = new MySqlQueryHandler(context))
