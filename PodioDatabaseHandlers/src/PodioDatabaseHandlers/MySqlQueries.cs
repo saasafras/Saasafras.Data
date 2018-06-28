@@ -25,9 +25,11 @@ namespace BrickBridge.Lambda.MySql
         /// ?podioAppId,?itemId,?revision,?clientId,?envId
         /// </summary>
         public const string INSERT_ITEM = @"INSERT INTO PodioItem(PodioAppId,ItemId,Revision,ClientId,EnvId) VALUES(?podioAppId,?itemId,?revision,?clientId,?envId);";
-        /// <summary>
-        /// ?podioAppId,?itemId,?revision,?clientId,?envId
-        /// </summary>
+		/// <summary>
+		/// ?itemId,?revision
+		/// </summary>
+		public const string SELECT_ITEM_REVISION = @"SELECT COALESCE(SUM(Id),0) AS Id FROM PodioItem WHERE `ItemId` = ?itemId AND `Revision` = ?revision;";
+
 		public const string UPDATE_ITEM = @"UPDATE PodioItem SET Revision = ?revision WHERE `PodioAppId`=?podioAppId AND `itemId`=?itemId AND `ClientId`=?clientId AND `envId`=?envId;";
         /// <summary>
         /// ?spaceName,?bbcAppId

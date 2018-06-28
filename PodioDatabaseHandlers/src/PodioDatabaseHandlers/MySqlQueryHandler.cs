@@ -118,6 +118,27 @@ namespace BrickBridge.Lambda.MySql
             return newItemId;
         }
 
+		public async Task<UInt64> CheckAndInsertPodioItem(Int32 podioAppId, int itemId, int revision, string clientId, string envId)
+        {
+            var cmd = new MySqlCommand(MySqlQueries.SELECT_ITEM_REVISION, _conn);
+            cmd.Parameters.Add("?itemId", MySqlDbType.Int32).Value = itemId;
+            cmd.Parameters.Add("?revision", MySqlDbType.Int32).Value = revision;
+            var id = await ExecuteUInt64(cmd);
+
+            if (id == 0)
+                throw new InvalidOperationException("There is already an item with this itemId and revision in the database.");
+
+            cmd = new MySqlCommand(MySqlQueries.INSERT_ITEM + MySqlQueries.GET_ID, _conn);
+            cmd.Parameters.Add("?podioAppId", MySqlDbType.Int32).Value = podioAppId;
+            cmd.Parameters.Add("?itemId", MySqlDbType.Int32).Value = itemId;
+            cmd.Parameters.Add("?revision", MySqlDbType.Int32).Value = revision;
+            cmd.Parameters.Add("?clientId", MySqlDbType.VarChar).Value = clientId;
+            cmd.Parameters.Add("?envId", MySqlDbType.VarChar).Value = envId;
+            var newItemId = await ExecuteUInt64(cmd);
+            _context.Logger.LogLine($"PodioItemId = {newItemId}");
+            return newItemId;
+        }
+
 		public async Task<UInt64> UpdatePodioItem(Int32 podioAppId, int itemId, int revision, string clientId, string envId)
         {
             var cmd = new MySqlCommand(MySqlQueries.INSERT_ITEM + MySqlQueries.GET_ID, _conn);
