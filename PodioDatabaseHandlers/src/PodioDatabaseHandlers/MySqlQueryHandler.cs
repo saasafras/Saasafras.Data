@@ -76,10 +76,16 @@ namespace BrickBridge.Lambda.MySql
             return result;
         }
 
-        private async Task<UInt64> ExecuteUInt64(MySqlCommand cmd)
+		private async Task<UInt64> ExecuteUInt64(MySqlCommand cmd)
         {
             var result = await ExecuteScalar(cmd);
             return (UInt64)result;
+        }
+
+		private async Task<Decimal> ExecuteDecimal(MySqlCommand cmd)
+        {
+            var result = await ExecuteScalar(cmd);
+            return (Decimal)result;
         }
 
         private async Task<Int32> ExecuteInt32(MySqlCommand cmd)
@@ -123,9 +129,9 @@ namespace BrickBridge.Lambda.MySql
             var cmd = new MySqlCommand(MySqlQueries.SELECT_ITEM_REVISION, _conn);
             cmd.Parameters.Add("?itemId", MySqlDbType.Int32).Value = itemId;
             cmd.Parameters.Add("?revision", MySqlDbType.Int32).Value = revision;
-            var id = await ExecuteUInt64(cmd);
+            var id = await ExecuteDecimal(cmd);
 
-            if (id == 0)
+            if (id != 0)
                 throw new InvalidOperationException("There is already an item with this itemId and revision in the database.");
 
             cmd = new MySqlCommand(MySqlQueries.INSERT_ITEM + MySqlQueries.GET_ID, _conn);
