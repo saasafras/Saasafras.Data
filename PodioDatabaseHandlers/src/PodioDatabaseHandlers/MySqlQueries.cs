@@ -50,7 +50,7 @@ namespace BrickBridge.Lambda.MySql
             DELETE FROM DurationFieldData WHERE PodioItemId = ?itemId;
             DELETE FROM LocationFieldData WHERE PodioItemId = ?itemId;
             DELETE FROM MemberFieldData WHERE PodioItemId = ?itemId;
-            DELETE FROM MoneyFielData WHERE PodioItemId = ?itemId;
+            DELETE FROM MoneyFieldData WHERE PodioItemId = ?itemId;
             DELETE FROM NumberFieldData WHERE PodioItemId = ?itemId;
             DELETE FROM PhoneEmailFieldData WHERE PodioItemId = ?itemId;
             DELETE FROM ProgressFieldData WHERE PodioItemId = ?itemId;
