@@ -18,6 +18,7 @@ namespace BrickBridge.Lambda.MySql
         {
             _context = context;
             _conn = new MySqlConnection(connectionString ?? _connStr);
+			_context.Logger.LogLine("Trying to connect to MySQL...");
             _conn.Open();
         }
 
@@ -25,7 +26,6 @@ namespace BrickBridge.Lambda.MySql
         {
             try
             {
-                _context.Logger.LogLine("Trying to connect to MySQL...");
                 _context.Logger.LogLine($"Executing command: {command.CommandText}");
                 var affected = await command.ExecuteNonQueryAsync();
                 _context.Logger.LogLine($"{affected} rows affected");
@@ -43,7 +43,6 @@ namespace BrickBridge.Lambda.MySql
             DbDataReader result = null;
             try
             {
-                _context.Logger.LogLine("Trying to connect to MySQL...");
                 _context.Logger.LogLine($"Executing command: {command.CommandText}");
                 result = await command.ExecuteReaderAsync();
                 //if (result.HasRows)
@@ -63,7 +62,6 @@ namespace BrickBridge.Lambda.MySql
             object result = null;
             try
             {
-                _context.Logger.LogLine("Trying to connect to MySQL...");
                 _context.Logger.LogLine($"Executing command: {command.CommandText}");
                 result = await command.ExecuteScalarAsync();
             }
@@ -133,6 +131,31 @@ namespace BrickBridge.Lambda.MySql
 
             if (id != 0)
                 throw new InvalidOperationException("There is already an item with this itemId and revision in the database.");
+
+            cmd = new MySqlCommand(MySqlQueries.INSERT_ITEM + MySqlQueries.GET_ID, _conn);
+            cmd.Parameters.Add("?podioAppId", MySqlDbType.Int32).Value = podioAppId;
+            cmd.Parameters.Add("?itemId", MySqlDbType.Int32).Value = itemId;
+            cmd.Parameters.Add("?revision", MySqlDbType.Int32).Value = revision;
+            cmd.Parameters.Add("?clientId", MySqlDbType.VarChar).Value = clientId;
+            cmd.Parameters.Add("?envId", MySqlDbType.VarChar).Value = envId;
+            var newItemId = await ExecuteUInt64(cmd);
+            _context.Logger.LogLine($"PodioItemId = {newItemId}");
+            return newItemId;
+        }
+        
+		public async Task<UInt64> DeleteAndInsertPodioItem(Int32 podioAppId, int itemId, int revision, string clientId, string envId)
+        {
+            var cmd = new MySqlCommand(MySqlQueries.SELECT_ITEM_REVISION, _conn);
+            cmd.Parameters.Add("?itemId", MySqlDbType.Int32).Value = itemId;
+            cmd.Parameters.Add("?revision", MySqlDbType.Int32).Value = revision;
+            var id = await ExecuteDecimal(cmd);
+
+            if (id != 0)
+			{
+				cmd = new MySqlCommand(MySqlQueries.DELETE_ITEM, _conn);
+				cmd.Parameters.Add("?itemId", MySqlDbType.Int32).Value = (int)id;
+				await ExecuteNonQuery(cmd);
+			}
 
             cmd = new MySqlCommand(MySqlQueries.INSERT_ITEM + MySqlQueries.GET_ID, _conn);
             cmd.Parameters.Add("?podioAppId", MySqlDbType.Int32).Value = podioAppId;

@@ -41,6 +41,24 @@ namespace BrickBridge.Lambda.MySql
         public const string SELECT_BBCAPP_ID = @"SELECT Id FROM BbcApp WHERE BbcAppId = ?bbcAppId AND Version = ?version;";
         
         /// <summary>
+        /// ?itemId
+        /// </summary>
+		public const string DELETE_ITEM = 
+			@"DELETE FROM CategoryFieldData WHERE PodioItemId = ?itemId;
+            DELETE FROM ContactFieldData WHERE PodioItemId = ?itemId;
+            DELETE FROM DateFieldData WHERE PodioItemId = ?itemId;
+            DELETE FROM DurationFieldData WHERE PodioItemId = ?itemId;
+            DELETE FROM LocationFieldData WHERE PodioItemId = ?itemId;
+            DELETE FROM MemberFieldData WHERE PodioItemId = ?itemId;
+            DELETE FROM MoneyFielData WHERE PodioItemId = ?itemId;
+            DELETE FROM NumberFieldData WHERE PodioItemId = ?itemId;
+            DELETE FROM PhoneEmailFieldData WHERE PodioItemId = ?itemId;
+            DELETE FROM ProgressFieldData WHERE PodioItemId = ?itemId;
+            DELETE FROM RelationFieldData WHERE PodioItemId = ?itemId;
+            DELETE FROM TextFieldData WHERE PodioItemId = ?itemId;
+            DELETE FROM PodioItem WHERE Id = ?itemId;";
+		
+        /// <summary>
         /// returns new id
         /// </summary>
         public const string GET_ID = @"SELECT LAST_INSERT_ID();";
