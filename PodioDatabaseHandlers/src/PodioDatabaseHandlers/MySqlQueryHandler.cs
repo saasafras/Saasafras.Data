@@ -96,7 +96,7 @@ namespace BrickBridge.Lambda.MySql
 		{
 			return _conn.BeginTransaction();
 		}
-
+        
         public async Task<Int32> GetPodioAppId(string bbcApp, string version, string spaceName, string appName)
         {
             var cmd = new MySqlCommand(MySqlQueries.SELECT_APP_ID, _conn);
@@ -340,7 +340,16 @@ namespace BrickBridge.Lambda.MySql
             return fieldDataId;
         }
 
-        #region IDisposable Support
+		public async Task RebuildAppTable(string bbcApp, string version)
+		{
+			var cmd = new MySqlCommand(MySqlQueries.SP_REBUILD_APP_TABLES, _conn);
+			cmd.Parameters.Add("BbcAppId", MySqlDbType.VarChar).Value = bbcApp;
+			cmd.Parameters.Add("Version", MySqlDbType.VarChar).Value = version;
+			cmd.CommandType = System.Data.CommandType.StoredProcedure;
+			await ExecuteNonQuery(cmd);
+		}
+
+		#region IDisposable Support
         private bool disposedValue = false; // To detect redundant calls
 
         protected virtual void Dispose(bool disposing)

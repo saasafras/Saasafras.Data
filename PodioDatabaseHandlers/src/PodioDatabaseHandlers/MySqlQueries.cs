@@ -110,5 +110,9 @@ namespace BrickBridge.Lambda.MySql
         /// ?fieldId,?text,?itemId
         /// </summary>
         public const string INSERT_TEXT_DATA = @"INSERT INTO podioTest.TextFieldData(PodioFieldId,Text,PodioItemId) VALUES(?fieldId,?text,?itemId);";
+        /// <summary>
+        /// The sp rebuild app tables.
+        /// </summary>
+		public const string SP_REBUILD_APP_TABLES = @"admin_rebuild_app_tables";
     }
 }
