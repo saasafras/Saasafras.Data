@@ -20,7 +20,7 @@ namespace BrickBridge.Lambda.MySql
         /// <summary>
         /// ?podioAppId
         /// </summary>
-        public const string SELECT_APP_FIELDS = @"SELECT v.PodioFieldId, v.ExternalId, v.`Type` FROM podioTest.PodioAppView v WHERE PodioAppId = ?podioAppId;";
+        public const string SELECT_APP_FIELDS = @"SELECT v.PodioFieldId, v.ExternalId, v.`Type`, v.`Name` FROM podioTest.PodioAppView v WHERE PodioAppId = ?podioAppId;";
         /// <summary>
         /// ?podioAppId,?itemId,?revision,?clientId,?envId
         /// </summary>
@@ -114,5 +114,36 @@ namespace BrickBridge.Lambda.MySql
         /// The sp rebuild app tables.
         /// </summary>
 		public const string SP_REBUILD_APP_TABLES = @"admin_rebuild_app_tables";
+
+		public const string MAIN_PODIO_APP_TABLE_CREATE = @"CREATE TABLE `{0}Table` (
+                `PodioItemId` int(11) unsigned NOT NULL,
+                `ClientId` varchar(45) DEFAULT NULL,
+                `ItemId` int(11) DEFAULT NULL,
+                `Revision` smallint(3) DEFAULT NULL,
+                `EnvId` varchar(45) DEFAULT NULL,{1}
+                ) ENGINE=InnoDB DEFAULT CHARSET=latin1;";
+
+		public const string ADD_TEXT_FIELD_TO_PODIO_APP_TABLE = @"`{0}` TEXT";
+
+		public const string MAIN_PODIO_APP_VIEW_CREATE = @"CREATE VIEW `{0}View` AS SELECT 
+                `PodioItemFieldViewTable`.`PodioItemId` AS `PodioItemId`,
+                `PodioItemFieldViewTable`.`ClientId` AS `ClientId`,
+                `PodioItemFieldViewTable`.`ItemId` AS `ItemId`,
+                `PodioItemFieldViewTable`.`Revision` AS `Revision`,
+                `PodioItemFieldViewTable`.`EnvId` AS `EnvId`,{1}
+                FROM `PodioItemFieldViewTable`
+                WHERE
+                (`PodioItemFieldViewTable`.`PodioAppId` = {2})
+                GROUP BY `PodioItemFieldViewTable`.`PodioItemId`";
+
+        public const string ADD_MAX_FIELD_STATEMENT_TO_PODIO_APP_VIEW = @"MAX((CASE
+            WHEN
+                ((`PodioItemFieldViewTable`.`Type` = '{0}')
+                    AND (`PodioItemFieldViewTable`.`Name` = '{1}'))
+            THEN
+                `PodioItemFieldViewTable`.`ReferencedData`
+            ELSE NULL
+        END)) AS `{1}`";
+
     }
 }

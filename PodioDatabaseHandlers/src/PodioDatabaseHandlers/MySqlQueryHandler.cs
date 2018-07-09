@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using System.Data.Common;
@@ -12,7 +13,6 @@ namespace BrickBridge.Lambda.MySql
         private ILambdaContext _context;
         private string _connStr = System.Environment.GetEnvironmentVariable("PODIO_DB_CONNECTION_STRING");
         private MySqlConnection _conn;
-		private MySqlTransaction _trans;
 
         public MySqlQueryHandler(ILambdaContext context, string connectionString = null)
         {
@@ -97,6 +97,7 @@ namespace BrickBridge.Lambda.MySql
 			return _conn.BeginTransaction();
 		}
         
+
         public async Task<Int32> GetPodioAppId(string bbcApp, string version, string spaceName, string appName)
         {
             var cmd = new MySqlCommand(MySqlQueries.SELECT_APP_ID, _conn);
@@ -195,7 +196,8 @@ namespace BrickBridge.Lambda.MySql
                 {
                     PodioFieldId = reader.GetInt32(0),
                     ExternalId = reader.GetString(1),
-                    Type = reader.GetString(2)
+                    Type = reader.GetString(2),
+                    Name = reader.GetString(3)
                 });
             }
             reader.Close();
@@ -340,14 +342,49 @@ namespace BrickBridge.Lambda.MySql
             return fieldDataId;
         }
 
-		public async Task RebuildAppTable(string bbcApp, string version)
+		public async Task RebuildAppTable(string bbcApp, string version, char refreshCoreTables)
 		{
 			var cmd = new MySqlCommand(MySqlQueries.SP_REBUILD_APP_TABLES, _conn);
 			cmd.Parameters.Add("BbcAppId", MySqlDbType.VarChar).Value = bbcApp;
 			cmd.Parameters.Add("Version", MySqlDbType.VarChar).Value = version;
+			cmd.Parameters.Add("RebuildSources", MySqlDbType.VarChar).Value = refreshCoreTables;
 			cmd.CommandType = System.Data.CommandType.StoredProcedure;
 			await ExecuteNonQuery(cmd);
 		}
+
+		public async Task CreatePodioAppView(string bbcApp, string version, string spaceName, string appName)
+        {
+            string middle, sql = null;
+            int podioAppId = -1;
+			podioAppId = await this.GetPodioAppId(bbcApp, version, spaceName, appName);
+			var fields = await this.SelectAppFields(podioAppId);
+			var fieldStrings = from f in fields
+							   where f.Type != "calculation" && f.Name != "-"
+							   select string.Format(MySqlQueries.ADD_MAX_FIELD_STATEMENT_TO_PODIO_APP_VIEW, f.Type, f.Name.Trim());
+			middle = fieldStrings.Aggregate((s1, s2) => $"{s1},{s2}");
+			sql = string.Format(MySqlQueries.MAIN_PODIO_APP_VIEW_CREATE, $"{spaceName}-{appName}", middle, podioAppId);
+			Console.WriteLine($"SQL: {sql}");
+			var cmd = new MySqlCommand(sql, _conn);
+
+			await ExecuteNonQuery(cmd);
+        }
+
+		public async Task CreatePodioAppTable(string bbcApp, string version, string spaceName, string appName)
+        {
+            string middle, sql = null;
+            int podioAppId = -1;
+            podioAppId = await this.GetPodioAppId(bbcApp, version, spaceName, appName);
+            var fields = await this.SelectAppFields(podioAppId);
+            var fieldStrings = from f in fields
+                               where f.Type != "calculation" && f.Name != "-"
+                               select string.Format(MySqlQueries.ADD_TEXT_FIELD_TO_PODIO_APP_TABLE, f.Name.Trim());
+            middle = fieldStrings.Aggregate((s1, s2) => $"{s1},{s2}");
+            sql = string.Format(MySqlQueries.MAIN_PODIO_APP_TABLE_CREATE, $"{spaceName}-{appName}", middle, podioAppId);
+            Console.WriteLine($"SQL: {sql}");
+            var cmd = new MySqlCommand(sql, _conn);
+
+            await ExecuteNonQuery(cmd);
+        }
 
 		#region IDisposable Support
         private bool disposedValue = false; // To detect redundant calls
