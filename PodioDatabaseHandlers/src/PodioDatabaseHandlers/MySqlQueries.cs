@@ -4,10 +4,6 @@ namespace BrickBridge.Lambda.MySql
     public class MySqlQueries
     {        
         /// <summary>
-        /// ?appName,?spaceId
-        /// </summary>
-        public const string INSERT_PODIO_APP = @"INSERT INTO PodioApp(PodioAppName,PodioSpaceId) VALUES(?appName,?spaceId);";
-        /// <summary>
         /// ?bbcAppId,?version,?spaceName,?appName
         /// </summary>
         public const string SELECT_APP_ID = @"SELECT app.Id FROM PodioApp app 
@@ -145,5 +141,9 @@ namespace BrickBridge.Lambda.MySql
             ELSE NULL
         END)) AS `{1}`";
 
+		public const string INSERT_BBC_APP = @"INSERT INTO BbcApp(BbcAppName,BbcAppId,Version) VALUES(?bbcAppName,?bbcAppId,?version);";
+		public const string INSERT_PODIO_SPACE = @"INSERT INTO PodioSpace(BbcAppId,PodioSpaceName) VALUES(?bbcAppId,?podioSpaceName);";
+        public const string INSERT_PODIO_APP = @"INSERT INTO PodioApp(PodioAppName,PodioSpaceId) VALUES(?appName,?spaceId);";
+		public const string INSERT_PODIO_FIELD = @"INSERT INTO PodioField(PodioAppId,`Type`,`Name`,ExternalId) VALUES(?podioAppId,?type,?name,?externalId);";
     }
 }

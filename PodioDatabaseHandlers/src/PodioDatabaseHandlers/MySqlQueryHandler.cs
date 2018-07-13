@@ -97,6 +97,48 @@ namespace BrickBridge.Lambda.MySql
 			return _conn.BeginTransaction();
 		}
         
+        public async Task<UInt64> AddBbcApp(string bbcAppName, string bbcAppId, string version)
+		{			
+			var cmd = new MySqlCommand(MySqlQueries.INSERT_BBC_APP + MySqlQueries.GET_ID, _conn);
+            cmd.Parameters.Add("?bbcAppName", MySqlDbType.VarChar).Value = bbcAppName;
+            cmd.Parameters.Add("?bbcAppId", MySqlDbType.VarChar).Value = bbcAppId;
+            cmd.Parameters.Add("?version", MySqlDbType.VarChar).Value = version;
+            var newItemId = await ExecuteUInt64(cmd);
+            _context.Logger.LogLine($"Id = {newItemId}");
+            return newItemId;
+		}
+
+        public async Task<UInt64> AddSpaceToBbcApp(Int32 bbcAppId, string podioSpaceName)      
+		{
+			var cmd = new MySqlCommand(MySqlQueries.INSERT_PODIO_SPACE + MySqlQueries.GET_ID, _conn);
+            cmd.Parameters.Add("?bbcAppId", MySqlDbType.Int32).Value = bbcAppId;
+            cmd.Parameters.Add("?podioSpaceName", MySqlDbType.VarChar).Value = podioSpaceName;
+            var newItemId = await ExecuteUInt64(cmd);
+            _context.Logger.LogLine($"Id = {newItemId}");
+            return newItemId;
+		}
+
+        public async Task<UInt64> AddAppToPodioSpace(Int32 podioSpaceId, string podioAppName)
+		{
+			var cmd = new MySqlCommand(MySqlQueries.INSERT_PODIO_APP + MySqlQueries.GET_ID, _conn);
+            cmd.Parameters.Add("?podioSpaceId", MySqlDbType.Int32).Value = podioSpaceId;
+            cmd.Parameters.Add("?podioAppName", MySqlDbType.VarChar).Value = podioAppName;
+            var newItemId = await ExecuteUInt64(cmd);
+            _context.Logger.LogLine($"Id = {newItemId}");
+            return newItemId;
+		}
+
+        public async Task<UInt64> AddFieldToPodioApp(Int32 podioAppId, string type, string name, string externalId)
+		{
+			var cmd = new MySqlCommand(MySqlQueries.INSERT_PODIO_FIELD + MySqlQueries.GET_ID, _conn);
+            cmd.Parameters.Add("?podioAppId", MySqlDbType.Int32).Value = podioAppId;
+            cmd.Parameters.Add("?type", MySqlDbType.VarChar).Value = type;
+			cmd.Parameters.Add("?name", MySqlDbType.VarChar).Value = name;
+			cmd.Parameters.Add("?externalId", MySqlDbType.VarChar).Value = externalId;
+            var newItemId = await ExecuteUInt64(cmd);
+            _context.Logger.LogLine($"Id = {newItemId}");
+            return newItemId;
+		}
 
         public async Task<Int32> GetPodioAppId(string bbcApp, string version, string spaceName, string appName)
         {
