@@ -37,23 +37,45 @@ namespace BrickBridge.Lambda.MySql
         public const string SELECT_BBCAPP_ID = @"SELECT Id FROM BbcApp WHERE BbcAppId = ?bbcAppId AND Version = ?version;";
         
         /// <summary>
-        /// ?itemId
+        /// ?id
         /// </summary>
-		public const string DELETE_ITEM = 
-			@"DELETE FROM CategoryFieldData WHERE PodioItemId = ?itemId;
-            DELETE FROM ContactFieldData WHERE PodioItemId = ?itemId;
-            DELETE FROM DateFieldData WHERE PodioItemId = ?itemId;
-            DELETE FROM DurationFieldData WHERE PodioItemId = ?itemId;
-            DELETE FROM LocationFieldData WHERE PodioItemId = ?itemId;
-            DELETE FROM MemberFieldData WHERE PodioItemId = ?itemId;
-            DELETE FROM MoneyFieldData WHERE PodioItemId = ?itemId;
-            DELETE FROM NumberFieldData WHERE PodioItemId = ?itemId;
-            DELETE FROM PhoneEmailFieldData WHERE PodioItemId = ?itemId;
-            DELETE FROM ProgressFieldData WHERE PodioItemId = ?itemId;
-            DELETE FROM RelationFieldData WHERE PodioItemId = ?itemId;
-            DELETE FROM TextFieldData WHERE PodioItemId = ?itemId;
-            DELETE FROM PodioItem WHERE Id = ?itemId;";
-		
+		public const string DELETE_ITEM_REVISION = 
+			@"DELETE FROM CategoryFieldData WHERE PodioItemId = ?id;
+            DELETE FROM ContactFieldData WHERE PodioItemId = ?id;
+            DELETE FROM DateFieldData WHERE PodioItemId = ?id;
+            DELETE FROM DurationFieldData WHERE PodioItemId = ?id;
+            DELETE FROM LocationFieldData WHERE PodioItemId = ?id;
+            DELETE FROM MemberFieldData WHERE PodioItemId = ?id;
+            DELETE FROM MoneyFieldData WHERE PodioItemId = ?id;
+            DELETE FROM NumberFieldData WHERE PodioItemId = ?id;
+            DELETE FROM PhoneEmailFieldData WHERE PodioItemId = ?id;
+            DELETE FROM ProgressFieldData WHERE PodioItemId = ?id;
+            DELETE FROM RelationFieldData WHERE PodioItemId = ?id;
+            DELETE FROM TextFieldData WHERE PodioItemId = ?id;
+            DELETE FROM PodioItem WHERE Id = ?id;";
+
+        /// <summary>
+        /// The delete all revisions.
+        /// </summary>
+        public const string DELETE_ALL_REVISIONS =
+            @"DELETE
+            pi,co,ca,da,du,lo,me,mo,nu,ph,pr,re,te
+            FROM PodioItem pi
+            INNER JOIN CategoryFieldData co ON pi.Id = co.PodioItemId
+            INNER JOIN ContactFieldData ca ON pi.Id = ca.PodioItemId
+            INNER JOIN DateFieldData da ON pi.Id = da.PodioItemId
+            INNER JOIN DurationFieldData du ON pi.Id = du.PodioItemId
+            INNER JOIN LocationFieldData lo ON pi.Id = lo.PodioItemId
+            INNER JOIN MemberFieldData me ON pi.Id = me.PodioItemId
+            INNER JOIN MoneyFieldData mo ON pi.Id = mo.PodioItemId
+            INNER JOIN NumberFieldData nu ON pi.Id = nu.PodioItemId
+            INNER JOIN PhoneEmailFieldData ph ON pi.Id = ph.PodioItemId
+            INNER JOIN ProgressFieldData pr ON pi.Id = pr.PodioItemId
+            INNER JOIN RelationFieldData re ON pi.Id = re.PodioItemId
+            INNER JOIN TextFieldData te ON pi.Id = te.PodioItemId
+            WHERE pi.ItemId = ?itemId;
+            ";
+        
         /// <summary>
         /// returns new id
         /// </summary>

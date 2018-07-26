@@ -186,7 +186,7 @@ namespace BrickBridge.Lambda.MySql
             return newItemId;
         }
         
-		public async Task<UInt64> DeleteAndInsertPodioItem(Int32 podioAppId, int itemId, int revision, string clientId, string envId)
+        public async Task<UInt64> DeleteAndInsertPodioItem(Int32 podioAppId, int itemId, int revision, string clientId, string envId)
         {
             var cmd = new MySqlCommand(MySqlQueries.SELECT_ITEM_REVISION, _conn);
             cmd.Parameters.Add("?itemId", MySqlDbType.Int32).Value = itemId;
@@ -194,11 +194,11 @@ namespace BrickBridge.Lambda.MySql
             var id = await ExecuteDecimal(cmd);
 
             if (id != 0)
-			{
-				cmd = new MySqlCommand(MySqlQueries.DELETE_ITEM, _conn);
-				cmd.Parameters.Add("?itemId", MySqlDbType.Int32).Value = (int)id;
-				await ExecuteNonQuery(cmd);
-			}
+            {
+                cmd = new MySqlCommand(MySqlQueries.DELETE_ITEM_REVISION, _conn);
+                cmd.Parameters.Add("?id", MySqlDbType.Int32).Value = (int)id;
+                await ExecuteNonQuery(cmd);
+            }
 
             cmd = new MySqlCommand(MySqlQueries.INSERT_ITEM + MySqlQueries.GET_ID, _conn);
             cmd.Parameters.Add("?podioAppId", MySqlDbType.Int32).Value = podioAppId;
@@ -209,6 +209,28 @@ namespace BrickBridge.Lambda.MySql
             var newItemId = await ExecuteUInt64(cmd);
             _context.Logger.LogLine($"PodioItemId = {newItemId}");
             return newItemId;
+        }
+
+        public async Task DeletePodioItemRevision(int itemId, int revision)
+        {
+            var cmd = new MySqlCommand(MySqlQueries.SELECT_ITEM_REVISION, _conn);
+            cmd.Parameters.Add("?itemId", MySqlDbType.Int32).Value = itemId;
+            cmd.Parameters.Add("?revision", MySqlDbType.Int32).Value = revision;
+            var id = await ExecuteDecimal(cmd);
+
+            if (id != 0)
+            {
+                cmd = new MySqlCommand(MySqlQueries.DELETE_ITEM_REVISION, _conn);
+                cmd.Parameters.Add("?id", MySqlDbType.Int32).Value = (int)id;
+                await ExecuteNonQuery(cmd);
+            }
+        }
+
+        public async Task DeletePodioItem(int itemId)
+        {
+            var cmd = new MySqlCommand(MySqlQueries.DELETE_ALL_REVISIONS, _conn);
+            cmd.Parameters.Add("?itemId", MySqlDbType.Int32).Value = itemId;
+            await ExecuteNonQuery(cmd);
         }
 
 		public async Task<UInt64> UpdatePodioItem(Int32 podioAppId, int itemId, int revision, string clientId, string envId)
