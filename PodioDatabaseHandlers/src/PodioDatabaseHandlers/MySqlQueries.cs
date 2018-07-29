@@ -131,9 +131,14 @@ namespace BrickBridge.Lambda.MySql
         /// <summary>
         /// The sp rebuild app tables.
         /// </summary>
-		public const string SP_REBUILD_APP_TABLES = @"admin_rebuild_app_tables";
+        public const string SP_REBUILD_APP_TABLES = @"admin_rebuild_app_tables";
+        /// <summary>
+        /// rebuild everything up to solution-specific views and tables
+        /// </summary>
+        public const string SP_REBUILD_CORE_TABLES = @"admin_rebuild_core_tables";
 
-		public const string MAIN_PODIO_APP_TABLE_CREATE = @"CREATE TABLE `{0}Table` (
+        public const string MAIN_PODIO_APP_TABLE_CREATE = @"DROP TABLE IF EXISTS `{0}Table`;
+                CREATE TABLE `{0}Table` (
                 `PodioItemId` int(11) unsigned NOT NULL,
                 `ClientId` varchar(45) DEFAULT NULL,
                 `ItemId` int(11) DEFAULT NULL,
@@ -143,7 +148,8 @@ namespace BrickBridge.Lambda.MySql
 
 		public const string ADD_TEXT_FIELD_TO_PODIO_APP_TABLE = @"`{0}` TEXT";
 
-		public const string MAIN_PODIO_APP_VIEW_CREATE = @"CREATE VIEW `{0}View` AS SELECT 
+        public const string MAIN_PODIO_APP_VIEW_CREATE = @"DROP VIEW IF EXISTS `{0}View`;
+                CREATE VIEW `{0}View` AS SELECT 
                 `PodioItemFieldViewTable`.`PodioItemId` AS `PodioItemId`,
                 `PodioItemFieldViewTable`.`ClientId` AS `ClientId`,
                 `PodioItemFieldViewTable`.`ItemId` AS `ItemId`,
@@ -152,7 +158,7 @@ namespace BrickBridge.Lambda.MySql
                 FROM `PodioItemFieldViewTable`
                 WHERE
                 (`PodioItemFieldViewTable`.`PodioAppId` = {2})
-                GROUP BY `PodioItemFieldViewTable`.`PodioItemId`";
+                GROUP BY `PodioItemFieldViewTable`.`PodioItemId`;";
 
         public const string ADD_MAX_FIELD_STATEMENT_TO_PODIO_APP_VIEW = @"MAX((CASE
             WHEN
