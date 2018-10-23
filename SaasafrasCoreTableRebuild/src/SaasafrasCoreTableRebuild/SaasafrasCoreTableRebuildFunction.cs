@@ -10,6 +10,12 @@ using BrickBridge.Lambda.MySql;
 
 namespace BrickBridge.Lambda
 {
+    public class SaasafrasCoreTableRebuildRequest
+    {
+        public string appId { get; set; }
+        public string version { get; set; }
+    }
+
     public class SaasafrasCoreTableRebuildFunction
     {
 
@@ -19,16 +25,14 @@ namespace BrickBridge.Lambda
         /// <param name="input"></param>
         /// <param name="context"></param>
         /// <returns></returns>
-        public async Task FunctionHandler(RoutedPodioEvent input, ILambdaContext context)
+        public async Task FunctionHandler(WebApiRequest<SaasafrasCoreTableRebuildRequest> input, ILambdaContext context)
         {
             context.Logger.LogLine($"Entered function...");
-            context.Logger.LogLine($"AppId: {input.appId}");
-            context.Logger.LogLine($"ClientId: {input.clientId}");
             using (var _mysql = new MySqlQueryHandler(context))
             {
-                context.Logger.LogLine($"Rebuilding core tables for {input.appId}, {input.version}");
+                context.Logger.LogLine($"Rebuilding core tables for {input.bodyJson.appId}, {input.bodyJson.version}");
 
-                await _mysql.RebuildCoreTables(input.appId, input.version);
+                await _mysql.RebuildCoreTables(input.bodyJson.appId, input.bodyJson.version);
             }
         }
     }
