@@ -10,6 +10,12 @@ using BrickBridge.Lambda.MySql;
 
 namespace BrickBridge.Lambda
 {
+    public class SaasafrasAppTableRebuildRequest
+    {
+        public string appId { get; set; }
+        public string version { get; set; }
+    }
+
     public class SaasafrasAppTableRebuildFunction
     {
         
@@ -19,23 +25,14 @@ namespace BrickBridge.Lambda
         /// <param name="input"></param>
         /// <param name="context"></param>
         /// <returns></returns>
-        public async Task FunctionHandler(RoutedPodioEvent input, ILambdaContext context)
+        public async Task FunctionHandler(WebApiRequest<SaasafrasAppTableRebuildRequest> input, ILambdaContext context)
         {
 			context.Logger.LogLine($"Entered function...");
-            context.Logger.LogLine($"AppId: {input.appId}");
-            context.Logger.LogLine($"ClientId: {input.clientId}");
-            ILambdaSerializer serializer = new Amazon.Lambda.Serialization.Json.JsonSerializer();
-
-            var deployment = input.currentEnvironment.apps.First(a => a.appId == input.appId);
-            context.Logger.LogLine($"Deployment: {deployment.date}");
-            
             using (var _mysql = new MySqlQueryHandler(context))
-            {
-				context.Logger.LogLine($"Calling rebuild app tables procedure on {input.appId}, {input.version}");
+            {				
+				context.Logger.LogLine($"Rebuilding app tables for {input.bodyJson.appId}, {input.bodyJson.version}");
 
-				await _mysql.RebuildAppTable(input.appId, input.version, 'Y');
-
-				context.Logger.LogLine($"Submitted request to rebuild tables for {input.appId}, {input.version}");
+                await _mysql.RebuildAppTable(input.bodyJson.appId, input.bodyJson.version, 'Y');
             }
         }
     }
