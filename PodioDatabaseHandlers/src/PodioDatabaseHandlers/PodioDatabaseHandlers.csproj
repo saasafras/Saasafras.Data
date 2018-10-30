@@ -1,20 +1,21 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netcoreapp2.0</TargetFramework>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
     <GenerateRuntimeConfigurationFiles>true</GenerateRuntimeConfigurationFiles>
     <PackOnBuild>true</PackOnBuild>
     <PackageId>Saasafras.Database</PackageId>
-    <PackageVersion>0.0.24</PackageVersion>
+    <PackageVersion>0.1.25</PackageVersion>
     <Authors>Saasafras</Authors>
-    <Description>Library for writing Podio data to RDBMs</Description>
+    <Description>Library for writing Podio data to RDBMs
+-dotnetcore2.1</Description>
   </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="Amazon.Lambda.Core" Version="1.0.0" />
-    <PackageReference Include="Amazon.Lambda.Serialization.Json" Version="1.1.0" />
-    <PackageReference Include="MySql.Data" Version="6.10.6" />
-    <PackageReference Include="NuGet.Build.Packaging" Version="0.2.0" />
+    <PackageReference Include="Amazon.Lambda.Serialization.Json" Version="1.4.0" />
+    <PackageReference Include="MySql.Data" Version="8.0.12" />
+    <PackageReference Include="NuGet.Build.Packaging" Version="0.2.2" />
   </ItemGroup>
 
   <ItemGroup>

@@ -61,18 +61,18 @@ namespace BrickBridge.Lambda.MySql
             @"DELETE
             pi,co,ca,da,du,lo,me,mo,nu,ph,pr,re,te
             FROM PodioItem pi
-            INNER JOIN CategoryFieldData co ON pi.Id = co.PodioItemId
-            INNER JOIN ContactFieldData ca ON pi.Id = ca.PodioItemId
-            INNER JOIN DateFieldData da ON pi.Id = da.PodioItemId
-            INNER JOIN DurationFieldData du ON pi.Id = du.PodioItemId
-            INNER JOIN LocationFieldData lo ON pi.Id = lo.PodioItemId
-            INNER JOIN MemberFieldData me ON pi.Id = me.PodioItemId
-            INNER JOIN MoneyFieldData mo ON pi.Id = mo.PodioItemId
-            INNER JOIN NumberFieldData nu ON pi.Id = nu.PodioItemId
-            INNER JOIN PhoneEmailFieldData ph ON pi.Id = ph.PodioItemId
-            INNER JOIN ProgressFieldData pr ON pi.Id = pr.PodioItemId
-            INNER JOIN RelationFieldData re ON pi.Id = re.PodioItemId
-            INNER JOIN TextFieldData te ON pi.Id = te.PodioItemId
+            LEFT JOIN CategoryFieldData co ON pi.Id = co.PodioItemId
+            LEFT JOIN ContactFieldData ca ON pi.Id = ca.PodioItemId
+            LEFT JOIN DateFieldData da ON pi.Id = da.PodioItemId
+            LEFT JOIN DurationFieldData du ON pi.Id = du.PodioItemId
+            LEFT JOIN LocationFieldData lo ON pi.Id = lo.PodioItemId
+            LEFT JOIN MemberFieldData me ON pi.Id = me.PodioItemId
+            LEFT JOIN MoneyFieldData mo ON pi.Id = mo.PodioItemId
+            LEFT JOIN NumberFieldData nu ON pi.Id = nu.PodioItemId
+            LEFT JOIN PhoneEmailFieldData ph ON pi.Id = ph.PodioItemId
+            LEFT JOIN ProgressFieldData pr ON pi.Id = pr.PodioItemId
+            LEFT JOIN RelationFieldData re ON pi.Id = re.PodioItemId
+            LEFT JOIN TextFieldData te ON pi.Id = te.PodioItemId
             WHERE pi.ItemId = ?itemId;
             ";
         
