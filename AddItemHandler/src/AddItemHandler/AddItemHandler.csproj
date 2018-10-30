@@ -1,15 +1,16 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netcoreapp2.0</TargetFramework>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
     <GenerateRuntimeConfigurationFiles>true</GenerateRuntimeConfigurationFiles>
   </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="Amazon.Lambda.Core" Version="1.0.0" />
-    <PackageReference Include="Amazon.Lambda.Serialization.Json" Version="1.1.0" />
-    <PackageReference Include="Saasafras" Version="0.1.22" />
-    <PackageReference Include="Saasafras.Database" Version="0.0.4" />
+    <PackageReference Include="Amazon.Lambda.Serialization.Json" Version="1.4.0" />
+    <PackageReference Include="Saasafras" Version="0.1.160" />
+    <PackageReference Include="Saasafras.Database" Version="0.1.25" />
+    <PackageReference Include="Saasafras.Lambda" Version="0.0.2" />
   </ItemGroup>
 
   <ItemGroup>

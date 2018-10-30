@@ -11,7 +11,7 @@ using PodioCore.Utils.ItemFields;
 [assembly: LambdaSerializer(typeof(Amazon.Lambda.Serialization.Json.JsonSerializer))]
 namespace BrickBridge.Lambda
 {
-    public class AddItemFunction
+    public class AddItemFunction : Saasafras.Lambda.BaseFunction
     {
         public async System.Threading.Tasks.Task FunctionHandler(RoutedPodioEvent input, ILambdaContext context)
         {
@@ -31,17 +31,30 @@ namespace BrickBridge.Lambda
 
 			var spaceId = input.currentItem.App.SpaceId.Value;
             context.Logger.LogLine($"SpaceId: {spaceId}");
-            var deployment = input.currentEnvironment.apps.First(a => a.appId == input.appId);
-            var spaceName = deployment.deployedSpaces.First(kv => kv.Value == spaceId.ToString()).Key;
-             
+
+            var deployment = input.currentEnvironment.deployments.First(a => a.appId == input.appId);
+			context.Logger.LogLine($"Deployment: {deployment.date}");
+            
+			var spaceName = deployment.deployedSpaces.First(kv => kv.Value == spaceId.ToString()).Key;
+			context.Logger.LogLine($"Space Name: {spaceName}");
+
             var appName = input.currentItem.App.Name;
 
             using (var _mysql = new MySqlQueryHandler(context))
             {
                 context.Logger.LogLine($"Inserting item {input.currentItem.ItemId} from app {input.appId}");
                 var podioAppId = await _mysql.GetPodioAppId(input.appId, input.version, spaceName, appName);
-                var podioItemId = await _mysql.InsertPodioItem(podioAppId, input.currentItem.ItemId, int.Parse(input.podioEvent.item_revision_id), input.clientId, input.currentEnvironment.environmentId);
-                var appFields = await _mysql.SelectAppFields(podioAppId);
+				ulong podioItemId;
+				try
+				{
+					podioItemId = await _mysql.CheckAndInsertPodioItem(podioAppId, input.currentItem.ItemId, int.Parse(input.podioEvent.item_revision_id), input.clientId, input.currentEnvironment.environmentId);
+				}
+                catch(InvalidOperationException e)
+				{
+					Console.WriteLine($"ItemId: {input.currentItem.ItemId}, Revision: {input.podioEvent.item_revision_id}");
+					throw e;
+				}
+				var appFields = await _mysql.SelectAppFields(podioAppId);
                 context.Logger.LogLine($"Item has {input.currentItem.Fields.Count} fields to insert.");
                 foreach (var field in input.currentItem.Fields)
                 {
