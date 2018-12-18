@@ -45,13 +45,23 @@ namespace BrickBridge.Lambda
                 context.Logger.LogLine($"Inserting item {input.currentItem.ItemId} from app {input.appId}");
                 var podioAppId = await _mysql.GetPodioAppId(input.appId, input.version, spaceName, appName);
 				ulong podioItemId;
-				try
+                var revision = int.Parse(input.podioEvent.item_revision_id);
+
+                try
 				{
-					podioItemId = await _mysql.CheckAndInsertPodioItem(podioAppId, input.currentItem.ItemId, int.Parse(input.podioEvent.item_revision_id), input.clientId, input.currentEnvironment.environmentId);
+                    if (revision < 0)
+                    {
+                        revision = await _mysql.GetLatestRevision(podioAppId, input.currentItem.ItemId);
+                        podioItemId = await _mysql.DeleteAndInsertPodioItem(podioAppId, input.currentItem.ItemId, revision, input.clientId, input.currentEnvironment.environmentId);
+                    }
+                    else
+                    {
+                        podioItemId = await _mysql.CheckAndInsertPodioItem(podioAppId, input.currentItem.ItemId, revision, input.clientId, input.currentEnvironment.environmentId);
+                    }
 				}
                 catch(InvalidOperationException e)
 				{
-					Console.WriteLine($"ItemId: {input.currentItem.ItemId}, Revision: {input.podioEvent.item_revision_id}");
+					Console.WriteLine($"ItemId: {input.currentItem.ItemId}, Revision: {revision}");
 					throw e;
 				}
 				var appFields = await _mysql.SelectAppFields(podioAppId);
