@@ -165,7 +165,15 @@ namespace BrickBridge.Lambda.MySql
             return newItemId;
         }
 
-		public async Task<UInt64> CheckAndInsertPodioItem(Int32 podioAppId, int itemId, int revision, string clientId, string envId)
+        public async Task<int> GetLatestRevision(Int32 podioAppId, int itemId)
+        {
+            var cmd = new MySqlCommand(MySqlQueries.SELECT_LATEST_REVISION, _conn);
+            cmd.Parameters.Add("?itemId", MySqlDbType.Int32).Value = itemId;
+            var revision = await ExecuteInt32(cmd);
+            return revision;
+        }
+
+        public async Task<UInt64> CheckAndInsertPodioItem(Int32 podioAppId, int itemId, int revision, string clientId, string envId)
         {
             var cmd = new MySqlCommand(MySqlQueries.SELECT_ITEM_REVISION, _conn);
             cmd.Parameters.Add("?itemId", MySqlDbType.Int32).Value = itemId;

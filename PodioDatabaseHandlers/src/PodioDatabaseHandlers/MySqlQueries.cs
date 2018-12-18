@@ -25,6 +25,7 @@ namespace BrickBridge.Lambda.MySql
 		/// ?itemId,?revision
 		/// </summary>
 		public const string SELECT_ITEM_REVISION = @"SELECT COALESCE(SUM(Id),0) AS Id FROM PodioItem WHERE `ItemId` = ?itemId AND `Revision` = ?revision;";
+        public const string SELECT_LATEST_REVISION = @"SELECT Revision FROM PodioItem WHERE `ItemId` = ?itemId ORDER BY `Revision` DESC LIMIT 1;";
 
 		public const string UPDATE_ITEM = @"UPDATE PodioItem SET Revision = ?revision WHERE `PodioAppId`=?podioAppId AND `itemId`=?itemId AND `ClientId`=?clientId AND `envId`=?envId;";
         /// <summary>
