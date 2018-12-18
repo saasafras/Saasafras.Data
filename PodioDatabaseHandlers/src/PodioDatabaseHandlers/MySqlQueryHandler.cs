@@ -92,6 +92,13 @@ namespace BrickBridge.Lambda.MySql
             return (Int32)result;
         }
 
+        private async Task<short> ExecuteShort(MySqlCommand cmd)
+        {
+            var result = await ExecuteScalar(cmd);
+            
+            return result == null ? (short)0 : (short)result;
+        }
+
         public MySqlTransaction StartTransaction()
 		{
 			return _conn.BeginTransaction();
@@ -169,7 +176,8 @@ namespace BrickBridge.Lambda.MySql
         {
             var cmd = new MySqlCommand(MySqlQueries.SELECT_LATEST_REVISION, _conn);
             cmd.Parameters.Add("?itemId", MySqlDbType.Int32).Value = itemId;
-            var revision = await ExecuteInt32(cmd);
+            var revision = await ExecuteShort(cmd);
+
             return revision;
         }
 
