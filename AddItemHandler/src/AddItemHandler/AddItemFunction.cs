@@ -51,7 +51,11 @@ namespace BrickBridge.Lambda
 				{
                     if (revision < 0)
                     {
+                        context.Logger.LogLine($"Republishing item {input.currentItem.ItemId}");
                         revision = await _mysql.GetLatestRevision(podioAppId, input.currentItem.ItemId);
+                        if (revision == 0)
+                            revision = 1;
+                        context.Logger.LogLine($"Updating item revision {revision}");
                         podioItemId = await _mysql.DeleteAndInsertPodioItem(podioAppId, input.currentItem.ItemId, revision, input.clientId, input.currentEnvironment.environmentId);
                     }
                     else
