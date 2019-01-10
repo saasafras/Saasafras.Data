@@ -11,9 +11,10 @@
   "profile":"default",
   "region" : "us-east-2",
   "configuration" : "Release",
-  "framework" : "netcoreapp2.0",
-  "function-runtime":"dotnetcore2.0",
+  "framework" : "netcoreapp2.1",
+  "function-runtime":"dotnetcore2.1",
   "function-memory-size" : 256,
   "function-timeout" : 30,
-  "function-handler": "SaasafrasAppTableRebuild::BrickBridge.Lambda.SaasafrasAppTableRebuildFunction::FunctionHandler"
+  "function-handler": "SaasafrasAppTableRebuild::BrickBridge.Lambda.SaasafrasAppTableRebuildFunction::FunctionHandler",
+  "function-role":  "Lambda_VPC_Access"
 }

@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using BrickBridge.Models;
+using Saasafras.Model;
 using Amazon.Lambda.Core;
 using BrickBridge.Lambda.MySql;
 // Assembly attribute to enable the Lambda function's JSON input to be converted into a .NET class.
@@ -12,7 +12,7 @@ namespace BrickBridge.Lambda
 {
     public class SaasafrasAppTableRebuildRequest
     {
-        public string appId { get; set; }
+        public string solutionId { get; set; }
         public string version { get; set; }
     }
 
@@ -30,9 +30,11 @@ namespace BrickBridge.Lambda
 			context.Logger.LogLine($"Entered function...");
             using (var _mysql = new MySqlQueryHandler(context))
             {				
-				context.Logger.LogLine($"Rebuilding app tables for {input.bodyJson.appId}, {input.bodyJson.version}");
+				context.Logger.LogLine($"Rebuilding app tables for {input.bodyJson.solutionId}, {input.bodyJson.version}");
 
-                await _mysql.RebuildAppTable(input.bodyJson.appId, input.bodyJson.version, 'Y');
+                var task = _mysql.RebuildCoreTables(input.bodyJson.solutionId, input.bodyJson.version);
+                task.ContinueWith((t) => _mysql.RebuildAppTable(input.bodyJson.solutionId, input.bodyJson.version, 'Y'));
+                await task;
             }
         }
     }
