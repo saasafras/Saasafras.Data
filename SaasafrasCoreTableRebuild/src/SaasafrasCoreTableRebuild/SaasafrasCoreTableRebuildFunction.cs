@@ -12,7 +12,7 @@ namespace BrickBridge.Lambda
 {
     public class SaasafrasCoreTableRebuildRequest
     {
-        public string appId { get; set; }
+        public string solutionId { get; set; }
         public string version { get; set; }
     }
 
@@ -32,7 +32,7 @@ namespace BrickBridge.Lambda
             {
                 context.Logger.LogLine($"Rebuilding core tables for {input.bodyJson.appId}, {input.bodyJson.version}");
 
-                await _mysql.RebuildCoreTables(input.bodyJson.appId, input.bodyJson.version);
+                await _mysql.RebuildCoreTables(input.bodyJson.solutionId, input.bodyJson.version);
             }
         }
     }
