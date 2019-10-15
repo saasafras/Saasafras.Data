@@ -1,0 +1,11 @@
+/Users/alex/Projects/brickbridgeconsulting/podiodatabasehandlers.git/PodioDatabaseHandlers/src/PodioDatabaseHandlers/obj/Debug/netcoreapp2.0/PodioDatabaseHandlers.csprojResolveAssemblyReference.cache
+/Users/alex/Projects/brickbridgeconsulting/podiodatabasehandlers.git/PodioDatabaseHandlers/src/PodioDatabaseHandlers/obj/Debug/netcoreapp2.0/PodioDatabaseHandlers.csproj.CoreCompileInputs.cache
+/Users/alex/Projects/brickbridgeconsulting/podiodatabasehandlers.git/PodioDatabaseHandlers/src/PodioDatabaseHandlers/obj/Debug/netcoreapp2.0/PodioDatabaseHandlers.AssemblyInfoInputs.cache
+/Users/alex/Projects/brickbridgeconsulting/podiodatabasehandlers.git/PodioDatabaseHandlers/src/PodioDatabaseHandlers/obj/Debug/netcoreapp2.0/PodioDatabaseHandlers.AssemblyInfo.cs
+/Users/alex/Projects/brickbridgeconsulting/podiodatabasehandlers.git/PodioDatabaseHandlers/src/PodioDatabaseHandlers/bin/Debug/netcoreapp2.0/PodioDatabaseHandlers.deps.json
+/Users/alex/Projects/brickbridgeconsulting/podiodatabasehandlers.git/PodioDatabaseHandlers/src/PodioDatabaseHandlers/bin/Debug/netcoreapp2.0/PodioDatabaseHandlers.runtimeconfig.json
+/Users/alex/Projects/brickbridgeconsulting/podiodatabasehandlers.git/PodioDatabaseHandlers/src/PodioDatabaseHandlers/bin/Debug/netcoreapp2.0/PodioDatabaseHandlers.runtimeconfig.dev.json
+/Users/alex/Projects/brickbridgeconsulting/podiodatabasehandlers.git/PodioDatabaseHandlers/src/PodioDatabaseHandlers/bin/Debug/netcoreapp2.0/PodioDatabaseHandlers.dll
+/Users/alex/Projects/brickbridgeconsulting/podiodatabasehandlers.git/PodioDatabaseHandlers/src/PodioDatabaseHandlers/bin/Debug/netcoreapp2.0/PodioDatabaseHandlers.pdb
+/Users/alex/Projects/brickbridgeconsulting/podiodatabasehandlers.git/PodioDatabaseHandlers/src/PodioDatabaseHandlers/obj/Debug/netcoreapp2.0/PodioDatabaseHandlers.dll
+/Users/alex/Projects/brickbridgeconsulting/podiodatabasehandlers.git/PodioDatabaseHandlers/src/PodioDatabaseHandlers/obj/Debug/netcoreapp2.0/PodioDatabaseHandlers.pdb

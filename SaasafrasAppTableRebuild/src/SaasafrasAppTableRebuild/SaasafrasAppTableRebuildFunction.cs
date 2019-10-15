@@ -25,15 +25,22 @@ namespace BrickBridge.Lambda
         /// <param name="input"></param>
         /// <param name="context"></param>
         /// <returns></returns>
-        public async Task FunctionHandler(WebApiRequest<SaasafrasAppTableRebuildRequest> input, ILambdaContext context)
+        public async Task FunctionHandler(SaasafrasAppTableRebuildRequest input, ILambdaContext context)
         {
-			context.Logger.LogLine($"Entered function...");
+            context.Logger.LogLine($"{Newtonsoft.Json.JsonConvert.SerializeObject(input)}");
             using (var _mysql = new MySqlQueryHandler(context))
             {				
-				context.Logger.LogLine($"Rebuilding app tables for {input.bodyJson.solutionId}, {input.bodyJson.version}");
-
-                var task = _mysql.RebuildCoreTables(input.bodyJson.solutionId, input.bodyJson.version);
-                task.ContinueWith((t) => _mysql.RebuildAppTable(input.bodyJson.solutionId, input.bodyJson.version, 'Y'));
+				context.Logger.LogLine($"Rebuilding app tables for {input.solutionId}, {input.version}");
+                try
+                {
+                    var task = _mysql.RebuildCoreTables(input.solutionId, input.version);
+                    await task;
+                }
+                catch (Exception e)
+                {
+                    context.Logger.LogLine(e.Message);
+                }
+                task.ContinueWith((t) => _mysql.RebuildAppTable(input.solutionId, input.version, 'Y'));
                 await task;
             }
         }

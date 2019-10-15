@@ -42,7 +42,7 @@ namespace BrickBridge.Lambda
 
             using (var _mysql = new MySqlQueryHandler(context))
             {
-                context.Logger.LogLine($"Inserting item {input.currentItem.ItemId} from app {input.appId}");
+				context.Logger.LogLine($"Inserting item {input.currentItem.ItemId} from app {input.appId}, {input.version}, {spaceName}, {appName}");
                 var podioAppId = await _mysql.GetPodioAppId(input.appId, input.version, spaceName, appName);
                 ulong podioItemId;
                 try

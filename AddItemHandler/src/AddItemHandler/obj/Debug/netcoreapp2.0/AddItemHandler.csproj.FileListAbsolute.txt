@@ -1,0 +1,11 @@
+/Users/alex/Projects/brickbridgeconsulting/podiodatabasehandlers.git/AddItemHandler/src/AddItemHandler/obj/Debug/netcoreapp2.0/AddItemHandler.csprojResolveAssemblyReference.cache
+/Users/alex/Projects/brickbridgeconsulting/podiodatabasehandlers.git/AddItemHandler/src/AddItemHandler/obj/Debug/netcoreapp2.0/AddItemHandler.csproj.CoreCompileInputs.cache
+/Users/alex/Projects/brickbridgeconsulting/podiodatabasehandlers.git/AddItemHandler/src/AddItemHandler/obj/Debug/netcoreapp2.0/AddItemHandler.AssemblyInfoInputs.cache
+/Users/alex/Projects/brickbridgeconsulting/podiodatabasehandlers.git/AddItemHandler/src/AddItemHandler/obj/Debug/netcoreapp2.0/AddItemHandler.AssemblyInfo.cs
+/Users/alex/Projects/brickbridgeconsulting/podiodatabasehandlers.git/AddItemHandler/src/AddItemHandler/bin/Debug/netcoreapp2.0/AddItemHandler.deps.json
+/Users/alex/Projects/brickbridgeconsulting/podiodatabasehandlers.git/AddItemHandler/src/AddItemHandler/bin/Debug/netcoreapp2.0/AddItemHandler.runtimeconfig.json
+/Users/alex/Projects/brickbridgeconsulting/podiodatabasehandlers.git/AddItemHandler/src/AddItemHandler/bin/Debug/netcoreapp2.0/AddItemHandler.runtimeconfig.dev.json
+/Users/alex/Projects/brickbridgeconsulting/podiodatabasehandlers.git/AddItemHandler/src/AddItemHandler/bin/Debug/netcoreapp2.0/AddItemHandler.dll
+/Users/alex/Projects/brickbridgeconsulting/podiodatabasehandlers.git/AddItemHandler/src/AddItemHandler/bin/Debug/netcoreapp2.0/AddItemHandler.pdb
+/Users/alex/Projects/brickbridgeconsulting/podiodatabasehandlers.git/AddItemHandler/src/AddItemHandler/obj/Debug/netcoreapp2.0/AddItemHandler.dll
+/Users/alex/Projects/brickbridgeconsulting/podiodatabasehandlers.git/AddItemHandler/src/AddItemHandler/obj/Debug/netcoreapp2.0/AddItemHandler.pdb

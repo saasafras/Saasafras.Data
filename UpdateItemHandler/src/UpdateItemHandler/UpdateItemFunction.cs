@@ -15,7 +15,7 @@ namespace BrickBridge.Lambda
     {
         public async System.Threading.Tasks.Task FunctionHandler(RoutedPodioEvent input, ILambdaContext context)
         {
-            context.Logger.LogLine($"Entered function...");
+			context.Logger.LogLine($"Entered function...");
             context.Logger.LogLine($"AppId: {input.appId}");
             context.Logger.LogLine($"ClientId: {input.clientId}");
             ILambdaSerializer serializer = new Amazon.Lambda.Serialization.Json.JsonSerializer();
@@ -46,6 +46,11 @@ namespace BrickBridge.Lambda
                 foreach (var field in input.currentItem.Fields)
                 {
                     //if the field matches a field defined for this app, insert the field data
+                    if (!appFields.Any(a => a.ExternalId == field.ExternalId && a.Type == field.Type))
+                    {
+                        context.Logger.LogLine($"Field {field.ExternalId} was not found in the PodioFields table.");
+                        continue;
+                    }
                     var appField = appFields.First(a => a.ExternalId == field.ExternalId && a.Type == field.Type);
                     context.Logger.LogLine($"Inserting field {field.ExternalId} for item {input.currentItem.ItemId}");
                     switch (field.Type)
@@ -129,11 +134,11 @@ namespace BrickBridge.Lambda
                             await _mysql.InsertTextField(podioItemId, appField.PodioFieldId, t.Value);
                             break;
                         case "calculation":
-                            var ca = input.currentItem.Field<CalculationItemField>(field.ExternalId);
-                            if (ca.HasValue() && ca.Value.HasValue)
-                                await _mysql.InsertNumberField(podioItemId, appField.PodioFieldId, (double)ca.Value.Value);
-                            else
-                                await _mysql.InsertTextField(podioItemId, appField.PodioFieldId, ca.ValueAsString);
+                            //var ca = input.currentItem.Field<CalculationItemField>(field.ExternalId);
+                            //if (ca.HasValue() && ca.Value.HasValue)
+                            //    await _mysql.InsertNumberField(podioItemId, appField.PodioFieldId, (double)ca.Value.Value);
+                            //else
+                            //await _mysql.InsertTextField(podioItemId, appField.PodioFieldId, ca.ValueAsString);
                             break;
                         default: throw new Exception($"Cannot handle field type: {field.Type}");
                     }

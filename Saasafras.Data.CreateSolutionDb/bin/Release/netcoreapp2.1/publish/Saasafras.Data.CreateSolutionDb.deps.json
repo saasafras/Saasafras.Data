@@ -1,0 +1,150 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v2.1/linux-x64",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v2.1": {},
+    ".NETCoreApp,Version=v2.1/linux-x64": {
+      "Saasafras.Data.CreateSolutionDb/1.0.0": {
+        "dependencies": {
+          "AWSSDK.RDS": "3.3.111.1",
+          "AWSSDK.RDSDataService": "3.3.102.3",
+          "AWSSDK.StepFunctions": "3.3.102.10",
+          "Amazon.Lambda.Core": "1.1.0",
+          "Amazon.Lambda.Serialization.Json": "1.6.0",
+          "Newtonsoft.Json": "12.0.2"
+        },
+        "runtime": {
+          "Saasafras.Data.CreateSolutionDb.dll": {}
+        }
+      },
+      "Amazon.Lambda.Core/1.1.0": {
+        "runtime": {
+          "lib/netstandard2.0/Amazon.Lambda.Core.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      },
+      "Amazon.Lambda.Serialization.Json/1.6.0": {
+        "dependencies": {
+          "Amazon.Lambda.Core": "1.1.0",
+          "Newtonsoft.Json": "12.0.2"
+        },
+        "runtime": {
+          "lib/netstandard2.0/Amazon.Lambda.Serialization.Json.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.2.0.0"
+          }
+        }
+      },
+      "AWSSDK.Core/3.3.103.46": {
+        "runtime": {
+          "lib/netstandard2.0/AWSSDK.Core.dll": {
+            "assemblyVersion": "3.3.0.0",
+            "fileVersion": "3.3.103.46"
+          }
+        }
+      },
+      "AWSSDK.RDS/3.3.111.1": {
+        "dependencies": {
+          "AWSSDK.Core": "3.3.103.46"
+        },
+        "runtime": {
+          "lib/netstandard2.0/AWSSDK.RDS.dll": {
+            "assemblyVersion": "3.3.0.0",
+            "fileVersion": "3.3.111.1"
+          }
+        }
+      },
+      "AWSSDK.RDSDataService/3.3.102.3": {
+        "dependencies": {
+          "AWSSDK.Core": "3.3.103.46"
+        },
+        "runtime": {
+          "lib/netstandard2.0/AWSSDK.RDSDataService.dll": {
+            "assemblyVersion": "3.3.0.0",
+            "fileVersion": "3.3.102.3"
+          }
+        }
+      },
+      "AWSSDK.StepFunctions/3.3.102.10": {
+        "dependencies": {
+          "AWSSDK.Core": "3.3.103.46"
+        },
+        "runtime": {
+          "lib/netstandard2.0/AWSSDK.StepFunctions.dll": {
+            "assemblyVersion": "3.3.0.0",
+            "fileVersion": "3.3.102.10"
+          }
+        }
+      },
+      "Newtonsoft.Json/12.0.2": {
+        "runtime": {
+          "lib/netstandard2.0/Newtonsoft.Json.dll": {
+            "assemblyVersion": "12.0.0.0",
+            "fileVersion": "12.0.2.23222"
+          }
+        }
+      }
+    }
+  },
+  "libraries": {
+    "Saasafras.Data.CreateSolutionDb/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Amazon.Lambda.Core/1.1.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-ueGId8b4DEHoVWkHDs3iAJH8IUSAUGu5AqkoI/Syl4RuByzik7lz9IjoImiGAlGhtsQV02MHNeTo04IFjS37gQ==",
+      "path": "amazon.lambda.core/1.1.0",
+      "hashPath": "amazon.lambda.core.1.1.0.nupkg.sha512"
+    },
+    "Amazon.Lambda.Serialization.Json/1.6.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-hiGb51d7A8MhPy9pZy7Uu+rcs2g+YziueQkacSpn/iI+9a2CdolrtFo+ojJhKvg90v7lZqAKvt2NRrmldV1qHA==",
+      "path": "amazon.lambda.serialization.json/1.6.0",
+      "hashPath": "amazon.lambda.serialization.json.1.6.0.nupkg.sha512"
+    },
+    "AWSSDK.Core/3.3.103.46": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-jsvuUXr0ZiJ2REyckuWtS+mm/1bKZjIvJIVJMdVnhxTpVRZhgTCrcjVu0svOJTEjNIBTuOoh/rf8fn3lLlQ2iQ==",
+      "path": "awssdk.core/3.3.103.46",
+      "hashPath": "awssdk.core.3.3.103.46.nupkg.sha512"
+    },
+    "AWSSDK.RDS/3.3.111.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-qzt56toFDcgz1bOijgLEacXd7mbYU5lwvRFxGeIj21u4qiCshBWRVAGSAOqcFVWz7wwuM4FDRX5mk+cvhAg2Bw==",
+      "path": "awssdk.rds/3.3.111.1",
+      "hashPath": "awssdk.rds.3.3.111.1.nupkg.sha512"
+    },
+    "AWSSDK.RDSDataService/3.3.102.3": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-DWVY27ufjTKGoUVMb9zXFX7qmFb6RA7YuReF6BbkyHUFsg44sCX9a05o7HnPo1GBv60+Qh3Wm7uX1ebTj0kRww==",
+      "path": "awssdk.rdsdataservice/3.3.102.3",
+      "hashPath": "awssdk.rdsdataservice.3.3.102.3.nupkg.sha512"
+    },
+    "AWSSDK.StepFunctions/3.3.102.10": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-ycjfJ0C3YsKkKE4pbIEwTbbbPZrztz/HRj5tOmYXhcL9AFSDiFv5BtTy8Upe+RzHFSc1SiU+ZU8/iUjgHbbL+A==",
+      "path": "awssdk.stepfunctions/3.3.102.10",
+      "hashPath": "awssdk.stepfunctions.3.3.102.10.nupkg.sha512"
+    },
+    "Newtonsoft.Json/12.0.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-rTK0s2EKlfHsQsH6Yx2smvcTCeyoDNgCW7FEYyV01drPlh2T243PR2DiDXqtC5N4GDm4Ma/lkxfW5a/4793vbA==",
+      "path": "newtonsoft.json/12.0.2",
+      "hashPath": "newtonsoft.json.12.0.2.nupkg.sha512"
+    }
+  }
+}

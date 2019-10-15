@@ -1,0 +1,10 @@
+/Users/alex/Projects/brickbridgeconsulting/podiodatabasehandlers.git/UpdateOverwriteItemHandler/src/UpdateOverwriteItemHandler/bin/Release/netcoreapp2.0/linux-x64/UpdateOverwriteItemHandler.deps.json
+/Users/alex/Projects/brickbridgeconsulting/podiodatabasehandlers.git/UpdateOverwriteItemHandler/src/UpdateOverwriteItemHandler/bin/Release/netcoreapp2.0/linux-x64/UpdateOverwriteItemHandler.runtimeconfig.json
+/Users/alex/Projects/brickbridgeconsulting/podiodatabasehandlers.git/UpdateOverwriteItemHandler/src/UpdateOverwriteItemHandler/bin/Release/netcoreapp2.0/linux-x64/UpdateOverwriteItemHandler.runtimeconfig.dev.json
+/Users/alex/Projects/brickbridgeconsulting/podiodatabasehandlers.git/UpdateOverwriteItemHandler/src/UpdateOverwriteItemHandler/bin/Release/netcoreapp2.0/linux-x64/UpdateOverwriteItemHandler.dll
+/Users/alex/Projects/brickbridgeconsulting/podiodatabasehandlers.git/UpdateOverwriteItemHandler/src/UpdateOverwriteItemHandler/bin/Release/netcoreapp2.0/linux-x64/UpdateOverwriteItemHandler.pdb
+/Users/alex/Projects/brickbridgeconsulting/podiodatabasehandlers.git/UpdateOverwriteItemHandler/src/UpdateOverwriteItemHandler/obj/Release/netcoreapp2.0/linux-x64/UpdateOverwriteItemHandler.csproj.CoreCompileInputs.cache
+/Users/alex/Projects/brickbridgeconsulting/podiodatabasehandlers.git/UpdateOverwriteItemHandler/src/UpdateOverwriteItemHandler/obj/Release/netcoreapp2.0/linux-x64/UpdateOverwriteItemHandler.AssemblyInfoInputs.cache
+/Users/alex/Projects/brickbridgeconsulting/podiodatabasehandlers.git/UpdateOverwriteItemHandler/src/UpdateOverwriteItemHandler/obj/Release/netcoreapp2.0/linux-x64/UpdateOverwriteItemHandler.AssemblyInfo.cs
+/Users/alex/Projects/brickbridgeconsulting/podiodatabasehandlers.git/UpdateOverwriteItemHandler/src/UpdateOverwriteItemHandler/obj/Release/netcoreapp2.0/linux-x64/UpdateOverwriteItemHandler.dll
+/Users/alex/Projects/brickbridgeconsulting/podiodatabasehandlers.git/UpdateOverwriteItemHandler/src/UpdateOverwriteItemHandler/obj/Release/netcoreapp2.0/linux-x64/UpdateOverwriteItemHandler.pdb

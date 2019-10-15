@@ -1,0 +1,11 @@
+/Users/alex/Projects/brickbridgeconsulting/podiodatabasehandlers.git/SaasafrasAppTableRebuild/src/SaasafrasAppTableRebuild/bin/Release/netcoreapp2.1/linux-x64/SaasafrasAppTableRebuild.deps.json
+/Users/alex/Projects/brickbridgeconsulting/podiodatabasehandlers.git/SaasafrasAppTableRebuild/src/SaasafrasAppTableRebuild/bin/Release/netcoreapp2.1/linux-x64/SaasafrasAppTableRebuild.runtimeconfig.json
+/Users/alex/Projects/brickbridgeconsulting/podiodatabasehandlers.git/SaasafrasAppTableRebuild/src/SaasafrasAppTableRebuild/bin/Release/netcoreapp2.1/linux-x64/SaasafrasAppTableRebuild.runtimeconfig.dev.json
+/Users/alex/Projects/brickbridgeconsulting/podiodatabasehandlers.git/SaasafrasAppTableRebuild/src/SaasafrasAppTableRebuild/bin/Release/netcoreapp2.1/linux-x64/SaasafrasAppTableRebuild.dll
+/Users/alex/Projects/brickbridgeconsulting/podiodatabasehandlers.git/SaasafrasAppTableRebuild/src/SaasafrasAppTableRebuild/bin/Release/netcoreapp2.1/linux-x64/SaasafrasAppTableRebuild.pdb
+/Users/alex/Projects/brickbridgeconsulting/podiodatabasehandlers.git/SaasafrasAppTableRebuild/src/SaasafrasAppTableRebuild/obj/Release/netcoreapp2.1/linux-x64/SaasafrasAppTableRebuild.csprojAssemblyReference.cache
+/Users/alex/Projects/brickbridgeconsulting/podiodatabasehandlers.git/SaasafrasAppTableRebuild/src/SaasafrasAppTableRebuild/obj/Release/netcoreapp2.1/linux-x64/SaasafrasAppTableRebuild.csproj.CoreCompileInputs.cache
+/Users/alex/Projects/brickbridgeconsulting/podiodatabasehandlers.git/SaasafrasAppTableRebuild/src/SaasafrasAppTableRebuild/obj/Release/netcoreapp2.1/linux-x64/SaasafrasAppTableRebuild.AssemblyInfoInputs.cache
+/Users/alex/Projects/brickbridgeconsulting/podiodatabasehandlers.git/SaasafrasAppTableRebuild/src/SaasafrasAppTableRebuild/obj/Release/netcoreapp2.1/linux-x64/SaasafrasAppTableRebuild.AssemblyInfo.cs
+/Users/alex/Projects/brickbridgeconsulting/podiodatabasehandlers.git/SaasafrasAppTableRebuild/src/SaasafrasAppTableRebuild/obj/Release/netcoreapp2.1/linux-x64/SaasafrasAppTableRebuild.dll
+/Users/alex/Projects/brickbridgeconsulting/podiodatabasehandlers.git/SaasafrasAppTableRebuild/src/SaasafrasAppTableRebuild/obj/Release/netcoreapp2.1/linux-x64/SaasafrasAppTableRebuild.pdb

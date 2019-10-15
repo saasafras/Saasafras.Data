@@ -7,13 +7,14 @@ using Amazon.Lambda.Core;
 using BrickBridge.Lambda.MySql;
 using PodioCore.Models;
 using PodioCore.Utils.ItemFields;
+using Saasafras.Models;
 
 [assembly: LambdaSerializer(typeof(Amazon.Lambda.Serialization.Json.JsonSerializer))]
 namespace BrickBridge.Lambda
 {
     public class AddItemFunction : Saasafras.Lambda.BaseFunction
     {
-        public async System.Threading.Tasks.Task FunctionHandler(RoutedPodioEvent input, ILambdaContext context)
+        public async System.Threading.Tasks.Task FunctionHandler(RoutedEvent<BrickBridge.Models.PodioEvent> input, ILambdaContext context)
         {
             context.Logger.LogLine($"Entered function...");
             context.Logger.LogLine($"AppId: {input.appId}");

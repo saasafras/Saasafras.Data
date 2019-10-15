@@ -1,0 +1,11 @@
+/Users/alex/Projects/brickbridgeconsulting/podiodatabasehandlers.git/SaasafrasCoreTableRebuild/src/SaasafrasCoreTableRebuild/bin/Release/netcoreapp2.1/linux-x64/SaasafrasCoreTableRebuild.deps.json
+/Users/alex/Projects/brickbridgeconsulting/podiodatabasehandlers.git/SaasafrasCoreTableRebuild/src/SaasafrasCoreTableRebuild/bin/Release/netcoreapp2.1/linux-x64/SaasafrasCoreTableRebuild.runtimeconfig.json
+/Users/alex/Projects/brickbridgeconsulting/podiodatabasehandlers.git/SaasafrasCoreTableRebuild/src/SaasafrasCoreTableRebuild/bin/Release/netcoreapp2.1/linux-x64/SaasafrasCoreTableRebuild.runtimeconfig.dev.json
+/Users/alex/Projects/brickbridgeconsulting/podiodatabasehandlers.git/SaasafrasCoreTableRebuild/src/SaasafrasCoreTableRebuild/bin/Release/netcoreapp2.1/linux-x64/SaasafrasCoreTableRebuild.dll
+/Users/alex/Projects/brickbridgeconsulting/podiodatabasehandlers.git/SaasafrasCoreTableRebuild/src/SaasafrasCoreTableRebuild/bin/Release/netcoreapp2.1/linux-x64/SaasafrasCoreTableRebuild.pdb
+/Users/alex/Projects/brickbridgeconsulting/podiodatabasehandlers.git/SaasafrasCoreTableRebuild/src/SaasafrasCoreTableRebuild/obj/Release/netcoreapp2.1/linux-x64/SaasafrasCoreTableRebuild.csprojAssemblyReference.cache
+/Users/alex/Projects/brickbridgeconsulting/podiodatabasehandlers.git/SaasafrasCoreTableRebuild/src/SaasafrasCoreTableRebuild/obj/Release/netcoreapp2.1/linux-x64/SaasafrasCoreTableRebuild.csproj.CoreCompileInputs.cache
+/Users/alex/Projects/brickbridgeconsulting/podiodatabasehandlers.git/SaasafrasCoreTableRebuild/src/SaasafrasCoreTableRebuild/obj/Release/netcoreapp2.1/linux-x64/SaasafrasCoreTableRebuild.AssemblyInfoInputs.cache
+/Users/alex/Projects/brickbridgeconsulting/podiodatabasehandlers.git/SaasafrasCoreTableRebuild/src/SaasafrasCoreTableRebuild/obj/Release/netcoreapp2.1/linux-x64/SaasafrasCoreTableRebuild.AssemblyInfo.cs
+/Users/alex/Projects/brickbridgeconsulting/podiodatabasehandlers.git/SaasafrasCoreTableRebuild/src/SaasafrasCoreTableRebuild/obj/Release/netcoreapp2.1/linux-x64/SaasafrasCoreTableRebuild.dll
+/Users/alex/Projects/brickbridgeconsulting/podiodatabasehandlers.git/SaasafrasCoreTableRebuild/src/SaasafrasCoreTableRebuild/obj/Release/netcoreapp2.1/linux-x64/SaasafrasCoreTableRebuild.pdb

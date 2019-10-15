@@ -1,0 +1,11 @@
+/Users/alex/Projects/brickbridgeconsulting/podiodatabasehandlers.git/DeleteItemHandler/src/DeleteItemHandler/bin/Debug/netcoreapp2.1/DeleteItemHandler.deps.json
+/Users/alex/Projects/brickbridgeconsulting/podiodatabasehandlers.git/DeleteItemHandler/src/DeleteItemHandler/bin/Debug/netcoreapp2.1/DeleteItemHandler.runtimeconfig.json
+/Users/alex/Projects/brickbridgeconsulting/podiodatabasehandlers.git/DeleteItemHandler/src/DeleteItemHandler/bin/Debug/netcoreapp2.1/DeleteItemHandler.runtimeconfig.dev.json
+/Users/alex/Projects/brickbridgeconsulting/podiodatabasehandlers.git/DeleteItemHandler/src/DeleteItemHandler/bin/Debug/netcoreapp2.1/DeleteItemHandler.dll
+/Users/alex/Projects/brickbridgeconsulting/podiodatabasehandlers.git/DeleteItemHandler/src/DeleteItemHandler/bin/Debug/netcoreapp2.1/DeleteItemHandler.pdb
+/Users/alex/Projects/brickbridgeconsulting/podiodatabasehandlers.git/DeleteItemHandler/src/DeleteItemHandler/obj/Debug/netcoreapp2.1/DeleteItemHandler.csproj.CoreCompileInputs.cache
+/Users/alex/Projects/brickbridgeconsulting/podiodatabasehandlers.git/DeleteItemHandler/src/DeleteItemHandler/obj/Debug/netcoreapp2.1/DeleteItemHandler.AssemblyInfoInputs.cache
+/Users/alex/Projects/brickbridgeconsulting/podiodatabasehandlers.git/DeleteItemHandler/src/DeleteItemHandler/obj/Debug/netcoreapp2.1/DeleteItemHandler.AssemblyInfo.cs
+/Users/alex/Projects/brickbridgeconsulting/podiodatabasehandlers.git/DeleteItemHandler/src/DeleteItemHandler/obj/Debug/netcoreapp2.1/DeleteItemHandler.dll
+/Users/alex/Projects/brickbridgeconsulting/podiodatabasehandlers.git/DeleteItemHandler/src/DeleteItemHandler/obj/Debug/netcoreapp2.1/DeleteItemHandler.pdb
+/Users/alex/Projects/brickbridgeconsulting/podiodatabasehandlers.git/DeleteItemHandler/src/DeleteItemHandler/obj/Debug/netcoreapp2.1/DeleteItemHandler.csprojAssemblyReference.cache

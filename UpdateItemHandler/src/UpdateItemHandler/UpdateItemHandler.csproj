@@ -8,14 +8,12 @@
   <ItemGroup>
     <PackageReference Include="Amazon.Lambda.Core" Version="1.0.0" />
     <PackageReference Include="Amazon.Lambda.Serialization.Json" Version="1.1.0" />
+    <PackageReference Include="Saasafras" Version="0.1.22" />
+    <PackageReference Include="Saasafras.Database" Version="0.0.4" />
   </ItemGroup>
 
   <ItemGroup>
     <DotNetCliToolReference Include="Amazon.Lambda.Tools" Version="2.1.1" />
   </ItemGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\..\..\..\..\coreeventhandlers\BbcServiceClient\BbcServiceClient.csproj" />
-    <ProjectReference Include="..\..\..\PodioDatabaseHandlers\src\PodioDatabaseHandlers\PodioDatabaseHandlers.csproj" />
-  </ItemGroup>
 </Project>
