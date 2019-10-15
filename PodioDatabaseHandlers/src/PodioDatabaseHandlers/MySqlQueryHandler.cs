@@ -435,7 +435,7 @@ namespace BrickBridge.Lambda.MySql
         public async Task RebuildCoreTables(string bbcApp, string version)
         {
             var cmd = new MySqlCommand(MySqlQueries.SP_REBUILD_CORE_TABLES, _conn);
-            cmd.Parameters.Add("BbcAppId", MySqlDbType.VarChar).Value = bbcApp;
+            cmd.Parameters.Add("BbcAppIdParam", MySqlDbType.VarChar).Value = bbcApp;
             cmd.Parameters.Add("Version", MySqlDbType.VarChar).Value = version;
             cmd.CommandType = System.Data.CommandType.StoredProcedure;
             await ExecuteNonQuery(cmd);
