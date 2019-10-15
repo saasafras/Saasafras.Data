@@ -1,7 +1,7 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workbench>
     <Files>
-      <File FileName="../../../AddItemHandler/src/AddItemHandler/AddItemFunction.cs" Line="52" Column="6" />
+      <File FileName="../../../AddItemHandler/src/AddItemHandler/AddItemFunction.cs" Line="9" Column="34" />
       <File FileName="../../../SaasafrasAppTableRebuild/src/SaasafrasAppTableRebuild/SaasafrasAppTableRebuildFunction.cs" />
       <File FileName="../../../SaasafrasAppTableRebuild/src/SaasafrasAppTableRebuild/aws-lambda-tools-defaults.json" />
       <File FileName="MySqlQueryHandler.cs" />
@@ -13,9 +13,8 @@
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="PodioDatabaseHandlers" expanded="True" selected="True">
-            <Node name="PodioDatabaseHandlers" expanded="True" />
+            <Node name="AddItemHandler" expanded="True" />
             <Node name="Saasafras.Data.CreateSolutionDb" expanded="True" />
-            <Node name="SaasafrasAppTableCreate" expanded="True" />
             <Node name="SaasafrasAppTableRebuild" expanded="True" />
             <Node name="SaasafrasCoreTableRebuild" expanded="True" />
           </Node>
