@@ -3763,11 +3763,11 @@
   "project": {
     "version": "0.1.29",
     "restore": {
-      "projectUniqueName": "/Users/alex/Projects/brickbridgeconsulting/podiodatabasehandlers.git/PodioDatabaseHandlers/src/PodioDatabaseHandlers/PodioDatabaseHandlers.csproj",
+      "projectUniqueName": "/Users/alex/Projects/Saasafras.Data/PodioDatabaseHandlers/src/PodioDatabaseHandlers/PodioDatabaseHandlers.csproj",
       "projectName": "Saasafras.Database",
-      "projectPath": "/Users/alex/Projects/brickbridgeconsulting/podiodatabasehandlers.git/PodioDatabaseHandlers/src/PodioDatabaseHandlers/PodioDatabaseHandlers.csproj",
+      "projectPath": "/Users/alex/Projects/Saasafras.Data/PodioDatabaseHandlers/src/PodioDatabaseHandlers/PodioDatabaseHandlers.csproj",
       "packagesPath": "/Users/alex/.nuget/packages/",
-      "outputPath": "/Users/alex/Projects/brickbridgeconsulting/podiodatabasehandlers.git/PodioDatabaseHandlers/src/PodioDatabaseHandlers/obj/",
+      "outputPath": "/Users/alex/Projects/Saasafras.Data/PodioDatabaseHandlers/src/PodioDatabaseHandlers/obj/",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"

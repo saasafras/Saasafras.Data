@@ -10,15 +10,13 @@ namespace BrickBridge.Lambda.MySql
 {
     public class MySqlQueryHandler : IDisposable
     {
-        private ILambdaContext _context;
         private string _connStr = System.Environment.GetEnvironmentVariable("PODIO_DB_CONNECTION_STRING");
         private MySqlConnection _conn;
 
-        public MySqlQueryHandler(ILambdaContext context, string connectionString = null)
+        public MySqlQueryHandler(string connectionString = null)
         {
-            _context = context;
             _conn = new MySqlConnection(connectionString ?? _connStr);
-			_context.Logger.LogLine("Trying to connect to MySQL...");
+			System.Console.WriteLine("Trying to connect to MySQL...");
             _conn.Open();
         }
 
@@ -26,14 +24,14 @@ namespace BrickBridge.Lambda.MySql
         {
             try
             {
-                _context.Logger.LogLine($"Executing command: {command.CommandText}");
+                System.Console.WriteLine($"Executing command: {command.CommandText}");
                 var affected = await command.ExecuteNonQueryAsync();
-                _context.Logger.LogLine($"{affected} rows affected");
+                System.Console.WriteLine($"{affected} rows affected");
             }
             catch (Exception e)
             {
                 _conn.Close();
-                _context.Logger.LogLine($"Exception in ExecuteNonQuery: {e.ToString()}");
+                System.Console.WriteLine($"Exception in ExecuteNonQuery: {e.ToString()}");
                 throw e;
             }
         }
@@ -43,15 +41,15 @@ namespace BrickBridge.Lambda.MySql
             DbDataReader result = null;
             try
             {
-                _context.Logger.LogLine($"Executing command: {command.CommandText}");
+                System.Console.WriteLine($"Executing command: {command.CommandText}");
                 result = await command.ExecuteReaderAsync();
                 //if (result.HasRows)
-                    //_context.Logger.LogLine($"reader returned rows");
+                    //System.Console.WriteLine($"reader returned rows");
             }
             catch (Exception e)
             {
                 _conn.Close();
-                _context.Logger.LogLine($"Exception in ExecuteQuery: {e.ToString()}");
+                System.Console.WriteLine($"Exception in ExecuteQuery: {e.ToString()}");
                 throw e;
             }
             return result;
@@ -62,13 +60,13 @@ namespace BrickBridge.Lambda.MySql
             object result = null;
             try
             {
-                _context.Logger.LogLine($"Executing command: {command.CommandText}");
+                System.Console.WriteLine($"Executing command: {command.CommandText}");
                 result = await command.ExecuteScalarAsync();
             }
             catch (Exception e)
             {
                 _conn.Close();
-                _context.Logger.LogLine($"Exception in ExecuteScalar: {e.ToString()}");
+                System.Console.WriteLine($"Exception in ExecuteScalar: {e.ToString()}");
                 throw e;
             }
             return result;
@@ -111,7 +109,7 @@ namespace BrickBridge.Lambda.MySql
             cmd.Parameters.Add("?bbcAppId", MySqlDbType.VarChar).Value = bbcAppId;
             cmd.Parameters.Add("?version", MySqlDbType.VarChar).Value = version;
             var newItemId = await ExecuteUInt64(cmd);
-            _context.Logger.LogLine($"Id = {newItemId}");
+            System.Console.WriteLine($"Id = {newItemId}");
             return newItemId;
 		}
 
@@ -121,7 +119,7 @@ namespace BrickBridge.Lambda.MySql
             cmd.Parameters.Add("?bbcAppId", MySqlDbType.Int32).Value = bbcAppId;
             cmd.Parameters.Add("?podioSpaceName", MySqlDbType.VarChar).Value = podioSpaceName;
             var newItemId = await ExecuteUInt64(cmd);
-            _context.Logger.LogLine($"Id = {newItemId}");
+            System.Console.WriteLine($"Id = {newItemId}");
             return newItemId;
 		}
 
@@ -131,7 +129,7 @@ namespace BrickBridge.Lambda.MySql
             cmd.Parameters.Add("?podioSpaceId", MySqlDbType.Int32).Value = podioSpaceId;
             cmd.Parameters.Add("?podioAppName", MySqlDbType.VarChar).Value = podioAppName;
             var newItemId = await ExecuteUInt64(cmd);
-            _context.Logger.LogLine($"Id = {newItemId}");
+            System.Console.WriteLine($"Id = {newItemId}");
             return newItemId;
 		}
 
@@ -143,7 +141,7 @@ namespace BrickBridge.Lambda.MySql
 			cmd.Parameters.Add("?name", MySqlDbType.VarChar).Value = name;
 			cmd.Parameters.Add("?externalId", MySqlDbType.VarChar).Value = externalId;
             var newItemId = await ExecuteUInt64(cmd);
-            _context.Logger.LogLine($"Id = {newItemId}");
+            System.Console.WriteLine($"Id = {newItemId}");
             return newItemId;
 		}
 
@@ -155,7 +153,7 @@ namespace BrickBridge.Lambda.MySql
             cmd.Parameters.Add("?appName", MySqlDbType.VarChar).Value = appName;
             cmd.Parameters.Add("?spaceName", MySqlDbType.VarChar).Value = spaceName;
             var podioAppId = await ExecuteInt32(cmd);
-            _context.Logger.LogLine($"PodioAppId = {podioAppId}");
+            System.Console.WriteLine($"PodioAppId = {podioAppId}");
             return podioAppId;
         }
 
@@ -168,7 +166,7 @@ namespace BrickBridge.Lambda.MySql
             cmd.Parameters.Add("?clientId", MySqlDbType.VarChar).Value = clientId;
             cmd.Parameters.Add("?envId", MySqlDbType.VarChar).Value = envId;
             var newItemId = await ExecuteUInt64(cmd);
-            _context.Logger.LogLine($"PodioItemId = {newItemId}");
+            System.Console.WriteLine($"PodioItemId = {newItemId}");
             return newItemId;
         }
 
@@ -198,7 +196,7 @@ namespace BrickBridge.Lambda.MySql
             cmd.Parameters.Add("?clientId", MySqlDbType.VarChar).Value = clientId;
             cmd.Parameters.Add("?envId", MySqlDbType.VarChar).Value = envId;
             var newItemId = await ExecuteUInt64(cmd);
-            _context.Logger.LogLine($"PodioItemId = {newItemId}");
+            System.Console.WriteLine($"PodioItemId = {newItemId}");
             return newItemId;
         }
         
@@ -223,7 +221,7 @@ namespace BrickBridge.Lambda.MySql
             cmd.Parameters.Add("?clientId", MySqlDbType.VarChar).Value = clientId;
             cmd.Parameters.Add("?envId", MySqlDbType.VarChar).Value = envId;
             var newItemId = await ExecuteUInt64(cmd);
-            _context.Logger.LogLine($"PodioItemId = {newItemId}");
+            System.Console.WriteLine($"PodioItemId = {newItemId}");
             return newItemId;
         }
 
@@ -258,7 +256,7 @@ namespace BrickBridge.Lambda.MySql
             cmd.Parameters.Add("?clientId", MySqlDbType.VarChar).Value = clientId;
             cmd.Parameters.Add("?envId", MySqlDbType.VarChar).Value = envId;
             var newItemId = await ExecuteUInt64(cmd);
-            _context.Logger.LogLine($"PodioItemId = {newItemId}");
+            System.Console.WriteLine($"PodioItemId = {newItemId}");
             return newItemId;
         }
 
@@ -269,7 +267,7 @@ namespace BrickBridge.Lambda.MySql
             cmd.Parameters.Add("?podioAppId", MySqlDbType.Int32).Value = podioAppId;
             var reader = await ExecuteQuery(cmd);
             var result = new List<MySqlPodioField>();
-            _context.Logger.LogLine($"Reader has rows: {reader.HasRows}");
+            System.Console.WriteLine($"Reader has rows: {reader.HasRows}");
             while (reader.Read())
             {
                 result.Add(new MySqlPodioField
@@ -281,7 +279,7 @@ namespace BrickBridge.Lambda.MySql
                 });
             }
             reader.Close();
-            _context.Logger.LogLine($"App has {result.Count} fields.");
+            System.Console.WriteLine($"App has {result.Count} fields.");
             return result;
         }
 

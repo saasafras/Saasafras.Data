@@ -13,7 +13,7 @@ using System.Reflection;
 
 [assembly: System.Reflection.AssemblyCompanyAttribute("Saasafras")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
-[assembly: System.Reflection.AssemblyDescriptionAttribute("Library for writing Podio data to RDBMs\n-dotnetcore2.1")]
+[assembly: System.Reflection.AssemblyDescriptionAttribute("Library for writing Podio data to RDBMs\r\n-dotnetcore2.1")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
 [assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
 [assembly: System.Reflection.AssemblyProductAttribute("PodioDatabaseHandlers")]
