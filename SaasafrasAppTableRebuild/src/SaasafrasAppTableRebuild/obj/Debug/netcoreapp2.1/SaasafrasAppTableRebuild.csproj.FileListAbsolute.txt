@@ -9,3 +9,4 @@
 /Users/alex/Projects/brickbridgeconsulting/podiodatabasehandlers.git/SaasafrasAppTableRebuild/src/SaasafrasAppTableRebuild/bin/Debug/netcoreapp2.1/SaasafrasAppTableRebuild.pdb
 /Users/alex/Projects/brickbridgeconsulting/podiodatabasehandlers.git/SaasafrasAppTableRebuild/src/SaasafrasAppTableRebuild/obj/Debug/netcoreapp2.1/SaasafrasAppTableRebuild.dll
 /Users/alex/Projects/brickbridgeconsulting/podiodatabasehandlers.git/SaasafrasAppTableRebuild/src/SaasafrasAppTableRebuild/obj/Debug/netcoreapp2.1/SaasafrasAppTableRebuild.pdb
+/Users/alex/Projects/brickbridgeconsulting/podiodatabasehandlers.git/SaasafrasAppTableRebuild/src/SaasafrasAppTableRebuild/obj/Debug/netcoreapp2.1/SaasafrasAppTableRebuild.genruntimeconfig.cache

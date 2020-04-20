@@ -15,8 +15,10 @@ namespace BrickBridge.Lambda
 {
     public class SaasafrasAppTableCreateRequest
     {
-        public string appId { get; set; }
+        public string solutionId { get; set; }
         public string version { get; set; }
+        public string spaceName { get; set; }
+        public string appName { get; set; }
     }
 
     public class SaasafrasAppTableCreateFunction
@@ -27,18 +29,31 @@ namespace BrickBridge.Lambda
         /// <param name="input"></param>
         /// <param name="context"></param>
         /// <returns></returns>
-        public async Task FunctionHandler(RoutedPodioEvent input, ILambdaContext context)
+        public async Task FunctionHandler(SaasafrasAppTableCreateRequest input, ILambdaContext context)
         {
-            context.Logger.LogLine($"Entered function...");
+            System.Console.WriteLine($"Entered function...");
             ILambdaSerializer serializer = new Amazon.Lambda.Serialization.Json.JsonSerializer();
-
+            
             using (var _mysql = new MySqlQueryHandler(context))
             {
-                context.Logger.LogLine($"Creating view and table, populating view for {input.appId}, {input.version}, {space.Name.Split(" - ")[1]}, {app.Config.Name}");
-                await _mysql.CreatePodioAppView(input.appId, input.version, space.Name.Split(" - ")[1], app.Config.Name)
-                            .ContinueWith(async t => await _mysql.CreatePodioAppTable(input.appId, input.version, space.Name.Split(" - ")[1], app.Config.Name))
-                            .ContinueWith(async t => await _mysql.RebuildAppTable(input.appId, input.version, 'Y'));
+                context.Logger.LogLine($"Creating view and table, populating view for {input.solutionId}, {input.version}, {input.spaceName}, {input.appName}");
+                await _mysql.CreatePodioAppView(input.solutionId, input.version, input.spaceName, input.appName)
+                            .ContinueWith(async t => await _mysql.CreatePodioAppTable(input.solutionId, input.version, input.spaceName, input.appName))
+                            .ContinueWith(async t => await _mysql.RebuildAppTable(input.solutionId, input.version, 'Y'));
             }
+        }
+
+        static void Main()
+        {
+            var request = new SaasafrasAppTableCreateRequest
+            {
+                solutionId = "mpactprobeta",
+                version = "3.0",
+                spaceName = "0. Agency Administration",
+                appName = "Agency Profile"
+            };
+            var function = new SaasafrasAppTableCreateFunction();
+            function.FunctionHandler(request, null).Wait();
         }
     }
 }

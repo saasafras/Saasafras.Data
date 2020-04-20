@@ -1,21 +1,24 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workbench ActiveDocument="../../../SaasafrasAppTableRebuild/src/SaasafrasAppTableRebuild/SaasafrasAppTableRebuildFunction.cs">
     <Files>
-      <File FileName="../../../AddItemHandler/src/AddItemHandler/AddItemFunction.cs" Line="9" Column="34" />
-      <File FileName="../../../SaasafrasAppTableRebuild/src/SaasafrasAppTableRebuild/SaasafrasAppTableRebuildFunction.cs" />
-      <File FileName="../../../SaasafrasAppTableRebuild/src/SaasafrasAppTableRebuild/aws-lambda-tools-defaults.json" />
+      <File FileName="../../../AddItemHandler/src/AddItemHandler/AddItemFunction.cs" Line="4" Column="30" />
+      <File FileName="../../../SaasafrasAppTableRebuild/src/SaasafrasAppTableRebuild/SaasafrasAppTableRebuildFunction.cs" Line="60" Column="1" />
       <File FileName="MySqlQueryHandler.cs" />
-      <File FileName="../../../SaasafrasAppTableCreate/src/SaasafrasAppTableCreate/SaasafrasAppTableCreateFunction.cs" />
+      <File FileName="../../../SaasafrasAppTableCreate/src/SaasafrasAppTableCreate/SaasafrasAppTableCreateFunction.cs" Line="44" Column="10" />
       <File FileName="MySqlQueries.cs" />
       <File FileName="../../../SaasafrasCoreTableRebuild/src/SaasafrasCoreTableRebuild/SaasafrasCoreTableRebuildFunction.cs" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
-          <Node name="PodioDatabaseHandlers" expanded="True" selected="True">
+          <Node name="PodioDatabaseHandlers" expanded="True">
             <Node name="AddItemHandler" expanded="True" />
+            <Node name="PodioDatabaseHandlers" expanded="True" />
             <Node name="Saasafras.Data.CreateSolutionDb" expanded="True" />
-            <Node name="SaasafrasAppTableRebuild" expanded="True" />
+            <Node name="SaasafrasAppTableCreate" expanded="True" />
+            <Node name="SaasafrasAppTableRebuild" expanded="True">
+              <Node name="SaasafrasAppTableRebuildFunction.cs" selected="True" />
+            </Node>
             <Node name="SaasafrasCoreTableRebuild" expanded="True" />
           </Node>
         </State>

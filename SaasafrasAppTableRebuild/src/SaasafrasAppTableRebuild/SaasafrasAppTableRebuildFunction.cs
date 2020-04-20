@@ -10,8 +10,9 @@ using BrickBridge.Lambda.MySql;
 
 namespace BrickBridge.Lambda
 {
-    public class SaasafrasAppTableRebuildRequest
+    public class SaasafrasRebuildRequest
     {
+        public string command { get; set; }
         public string solutionId { get; set; }
         public string version { get; set; }
     }
@@ -25,23 +26,40 @@ namespace BrickBridge.Lambda
         /// <param name="input"></param>
         /// <param name="context"></param>
         /// <returns></returns>
-        public async Task FunctionHandler(SaasafrasAppTableRebuildRequest input, ILambdaContext context)
+        public async Task FunctionHandler(SaasafrasRebuildRequest input, ILambdaContext context)
         {
             context.Logger.LogLine($"{Newtonsoft.Json.JsonConvert.SerializeObject(input)}");
             using (var _mysql = new MySqlQueryHandler(context))
-            {				
-				context.Logger.LogLine($"Rebuilding app tables for {input.solutionId}, {input.version}");
-                try
+            {
+                switch(input.command)
                 {
-                    var task = _mysql.RebuildCoreTables(input.solutionId, input.version);
-                    await task;
+                    case "rebuild-core-tables":
+                        context.Logger.LogLine($"Rebuilding app tables for {input.solutionId}, {input.version}");
+                        try
+                        {
+                            var task = _mysql.RebuildCoreTables(input.solutionId, input.version);
+                            await task;
+                        }
+                        catch (Exception e)
+                        {
+                            context.Logger.LogLine(e.Message);
+                        }
+                        break;
+                    case "rebuild-app-tables":
+                        context.Logger.LogLine($"Rebuilding app tables for {input.solutionId}, {input.version}");
+                        try
+                        {
+                            var task = _mysql.RebuildAppTable(input.solutionId, input.version, 'Y');
+                            await task;
+                        }
+                        catch (Exception e)
+                        {
+                            context.Logger.LogLine(e.Message);
+                        }
+                        break;
+                    default:
+                        throw new Exception($"command {input.command} not recognized.");
                 }
-                catch (Exception e)
-                {
-                    context.Logger.LogLine(e.Message);
-                }
-                task.ContinueWith((t) => _mysql.RebuildAppTable(input.solutionId, input.version, 'Y'));
-                await task;
             }
         }
     }

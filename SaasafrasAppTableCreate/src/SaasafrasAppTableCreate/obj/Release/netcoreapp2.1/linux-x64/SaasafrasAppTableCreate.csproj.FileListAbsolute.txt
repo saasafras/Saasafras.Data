@@ -9,3 +9,4 @@
 /Users/alex/Projects/brickbridgeconsulting/podiodatabasehandlers.git/SaasafrasAppTableCreate/src/SaasafrasAppTableCreate/obj/Release/netcoreapp2.1/linux-x64/SaasafrasAppTableCreate.AssemblyInfo.cs
 /Users/alex/Projects/brickbridgeconsulting/podiodatabasehandlers.git/SaasafrasAppTableCreate/src/SaasafrasAppTableCreate/obj/Release/netcoreapp2.1/linux-x64/SaasafrasAppTableCreate.dll
 /Users/alex/Projects/brickbridgeconsulting/podiodatabasehandlers.git/SaasafrasAppTableCreate/src/SaasafrasAppTableCreate/obj/Release/netcoreapp2.1/linux-x64/SaasafrasAppTableCreate.pdb
+/Users/alex/Projects/brickbridgeconsulting/podiodatabasehandlers.git/SaasafrasAppTableCreate/src/SaasafrasAppTableCreate/obj/Release/netcoreapp2.1/linux-x64/SaasafrasAppTableCreate.genruntimeconfig.cache

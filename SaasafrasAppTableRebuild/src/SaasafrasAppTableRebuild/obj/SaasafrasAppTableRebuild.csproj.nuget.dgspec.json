@@ -18,14 +18,13 @@
         ],
         "configFilePaths": [
           "/Users/alex/NuGet.Config",
-          "/Users/alex/.config/NuGet/NuGet.Config"
+          "/Users/alex/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp2.1"
         ],
         "sources": {
-          "https://api.nuget.org/v3/index.json": {},
-          "https://www.myget.org/F/saasafras/auth/93742589-39c6-4fe6-97a3-3e79e5e57567/api/v3/index.json": {}
+          "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "netcoreapp2.1": {
@@ -78,7 +77,12 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/3.0.100/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/3.1.200/RuntimeIdentifierGraph.json"
+        }
+      },
+      "runtimes": {
+        "linux-x64": {
+          "#import": []
         }
       }
     }

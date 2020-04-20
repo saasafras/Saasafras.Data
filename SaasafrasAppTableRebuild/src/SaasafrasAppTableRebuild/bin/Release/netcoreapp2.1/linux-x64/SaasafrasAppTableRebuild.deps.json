@@ -1,7 +1,7 @@
 {
   "runtimeTarget": {
     "name": ".NETCoreApp,Version=v2.1/linux-x64",
-    "signature": "ddcf4974705e9b802c582079d55051f157dfb782"
+    "signature": ""
   },
   "compilationOptions": {},
   "targets": {
@@ -712,7 +712,7 @@
     "Amazon.Lambda.CloudWatchLogsEvents/1.0.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-LuINx3i+SLQXtXzwK7F2A288/EICIndIjlzHprNS1n7QzUMT/b7Vk5/wbDGU+PdmVErSRgeU60VFxRP/j2mavg==",
+      "sha512": "sha512-s4AuXRBSPvC+/r9iaAIlm97nRJdqGo6g7rTQ0JDkbwC2HWeE6+NxShomn2Cc9lUXekNTfR0s6fUhgu7dx/mFhg==",
       "path": "amazon.lambda.cloudwatchlogsevents/1.0.0",
       "hashPath": "amazon.lambda.cloudwatchlogsevents.1.0.0.nupkg.sha512"
     },
@@ -726,42 +726,42 @@
     "Amazon.Lambda.Serialization.Json/1.4.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-DooZM6yh1UCPhcy2Z/lwDvqD3T6PUa9rAcCZe85mCz4Im5bZ80CtGsnEZwJzFSj5FKsoQmjaWQHfj7VPyg0Row==",
+      "sha512": "sha512-6onwMtoj78Fy/LKTAeTxxEM+zPHG+UiIS1eiQX4TQsE9QNM0CvwRY0bPV9fP+ADVOQ6rdpXamh+CaGKwnpa07A==",
       "path": "amazon.lambda.serialization.json/1.4.0",
       "hashPath": "amazon.lambda.serialization.json.1.4.0.nupkg.sha512"
     },
     "AWSSDK.CloudWatchLogs/3.3.7.1": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-ap090x8/upvSbX4Vr+yoVN2wo83nlp5EL2xYmCsEqZ4JxHn9a77NJp+UwGezEF78Z76/Hi4weXRn5+icVh+BVQ==",
+      "sha512": "sha512-zT14HhrhqR1uVul8/GNAXtXC/bB/278WrQ6LK0vF/SRKyAnAHn11fRwag2fazBhLQrAT2IGhGj8JrUYpXXVMZQ==",
       "path": "awssdk.cloudwatchlogs/3.3.7.1",
       "hashPath": "awssdk.cloudwatchlogs.3.3.7.1.nupkg.sha512"
     },
     "AWSSDK.Core/3.3.30.2": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-57hCvc9U2ZrV1oAemq1pGVIvi61YsExbf4G3ibg5b4TzphcY8rqg5qIDEN7sNnqWE0zD5hEAVUYe1tXJRqBYvg==",
+      "sha512": "sha512-3T3c/c44Yvvabjk6aBE3xhPVylwbP/uUHooxZDhbqJjaFb5zlQoXWRbzA4KknJfy5+8SF9UfqqTUCDMCD5cbzw==",
       "path": "awssdk.core/3.3.30.2",
       "hashPath": "awssdk.core.3.3.30.2.nupkg.sha512"
     },
     "AWSSDK.DynamoDBv2/3.3.16": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-ORyfWLTPkJrbjBpGHipq/ZE9sNZ9val2T1SgncIAjluYHfBCXEnY9PGrMrSY6fFcRnQw+rNfvuAaKAmxpktUpw==",
+      "sha512": "sha512-6Q6bgU9psWm9UlMJl4IFVcRwGPfTY9V7GUbkZ5QEdCYqwxE/OzrpjApS514WkHA63ojbhibfoI/RX3nYWeyKBA==",
       "path": "awssdk.dynamodbv2/3.3.16",
       "hashPath": "awssdk.dynamodbv2.3.3.16.nupkg.sha512"
     },
     "AWSSDK.Lambda/3.3.19.1": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-9LYWW/03gsHcQzGm36/UtYTeqXHkLg6GfDJ0krygQvW97ixTa+NwtoKccfMVbsPOOqzGwXlO57ybfCevpiRw1A==",
+      "sha512": "sha512-5BUjB84zSjsoKqHN/c7bBrQMZgUOCf4dxJTaiPiCRGG4gQYfX0PdxkJmhLoz9WYdUICqlexJtXl7pQPPP/5wEw==",
       "path": "awssdk.lambda/3.3.19.1",
       "hashPath": "awssdk.lambda.3.3.19.1.nupkg.sha512"
     },
     "AWSSDK.SimpleNotificationService/3.3.3.3": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-sSJS09xcj1iHQX1+Cayh5HMiVneZy6aT0eLPdYuAm7VIW3iLhpG8rTyEA7Ff/8HvD+zAZ3VfHcgumvf7H/oPJg==",
+      "sha512": "sha512-HHRW4CiCg3hrKZ04Of/6WS/1ujLTksFa+uzdWeNadDnvMovmg1BBD4UOK13FdaqKUn/LAaVTVPxKXJT7bP0hqA==",
       "path": "awssdk.simplenotificationservice/3.3.3.3",
       "hashPath": "awssdk.simplenotificationservice.3.3.3.3.nupkg.sha512"
     },
@@ -789,7 +789,7 @@
     "Newtonsoft.Json/12.0.1": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-jmVyoEyk0In8r+AObYQyFKVFm7uSRzE0XSHSbEtBJcZDMV6DqJoyB4FLcHwprPVhAh826so0db3DIKXVnpGoPA==",
+      "sha512": "sha512-pBR3wCgYWZGiaZDYP+HHYnalVnPJlpP1q55qvVb+adrDHmFMDc1NAKio61xTwftK3Pw5h7TZJPJEEVMd6ty8rg==",
       "path": "newtonsoft.json/12.0.1",
       "hashPath": "newtonsoft.json.12.0.1.nupkg.sha512"
     },
@@ -859,7 +859,7 @@
     "System.Configuration.ConfigurationManager/4.4.1": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-LoSjM/kLDpyLyoGsmwS5oVMRzHf/0XHkRpr3QZu/HuAv6Sfk919usTMLqD9N9VK3S4Q2+bd3tKJ0ko4MYFfq4Q==",
+      "sha512": "sha512-jz3TWKMAeuDEyrPCK5Jyt4bzQcmzUIMcY9Ud6PkElFxTfnsihV+9N/UCqvxe1z5gc7jMYAnj7V1COMS9QKIuHQ==",
       "path": "system.configuration.configurationmanager/4.4.1",
       "hashPath": "system.configuration.configurationmanager.4.4.1.nupkg.sha512"
     },
@@ -1153,7 +1153,7 @@
     "System.Security.Permissions/4.4.1": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-tXBMO8OJEuw9c4KjLj4fwxJusely90azF24Uktz/evgvowAtU963HYl+G93gaRZr6pvYvsSPrjkN4+2pdVUbgw==",
+      "sha512": "sha512-l8IxQ9mEAkKv85uoEcjcYhrh+yTLZtLgNqb2T7QChTdKXh45EUnmKd+Ckdt1D+VYW2dk2Pb5MT+0zwQ74Jd2Xg==",
       "path": "system.security.permissions/4.4.1",
       "hashPath": "system.security.permissions.4.4.1.nupkg.sha512"
     },
