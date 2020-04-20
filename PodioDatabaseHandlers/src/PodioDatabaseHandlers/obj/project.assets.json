@@ -3761,7 +3761,7 @@
     "/usr/local/share/dotnet/sdk/NuGetFallbackFolder": {}
   },
   "project": {
-    "version": "0.1.29",
+    "version": "0.1.30",
     "restore": {
       "projectUniqueName": "/Users/alex/Projects/brickbridgeconsulting/podiodatabasehandlers.git/PodioDatabaseHandlers/src/PodioDatabaseHandlers/PodioDatabaseHandlers.csproj",
       "projectName": "Saasafras.Database",
