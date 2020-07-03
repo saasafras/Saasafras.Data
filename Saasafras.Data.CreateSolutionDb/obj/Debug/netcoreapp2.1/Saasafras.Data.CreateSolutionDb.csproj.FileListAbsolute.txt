@@ -1,8 +1,0 @@
-/Users/alex/Projects/Saasafras.Event/saasafras.event/Saasafras.Data.CreateSolutionDb/obj/Debug/netcoreapp2.1/Saasafras.Data.CreateSolutionDb.csprojAssemblyReference.cache
-/Users/alex/Projects/Saasafras.Event/saasafras.event/Saasafras.Data.CreateSolutionDb/obj/Debug/netcoreapp2.1/Saasafras.Data.CreateSolutionDb.AssemblyInfoInputs.cache
-/Users/alex/Projects/Saasafras.Event/saasafras.event/Saasafras.Data.CreateSolutionDb/obj/Debug/netcoreapp2.1/Saasafras.Data.CreateSolutionDb.AssemblyInfo.cs
-/Users/alex/Projects/Saasafras.Event/saasafras.event/Saasafras.Data.CreateSolutionDb/bin/Debug/netcoreapp2.1/Saasafras.Data.CreateSolutionDb.deps.json
-/Users/alex/Projects/Saasafras.Event/saasafras.event/Saasafras.Data.CreateSolutionDb/bin/Debug/netcoreapp2.1/Saasafras.Data.CreateSolutionDb.dll
-/Users/alex/Projects/Saasafras.Event/saasafras.event/Saasafras.Data.CreateSolutionDb/bin/Debug/netcoreapp2.1/Saasafras.Data.CreateSolutionDb.pdb
-/Users/alex/Projects/Saasafras.Event/saasafras.event/Saasafras.Data.CreateSolutionDb/obj/Debug/netcoreapp2.1/Saasafras.Data.CreateSolutionDb.dll
-/Users/alex/Projects/Saasafras.Event/saasafras.event/Saasafras.Data.CreateSolutionDb/obj/Debug/netcoreapp2.1/Saasafras.Data.CreateSolutionDb.pdb

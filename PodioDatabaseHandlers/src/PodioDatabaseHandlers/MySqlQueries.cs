@@ -147,7 +147,23 @@ namespace BrickBridge.Lambda.MySql
                 `EnvId` varchar(45) DEFAULT NULL,{1}
                 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;";
 
-		public const string ADD_TEXT_FIELD_TO_PODIO_APP_TABLE = @"`{0}` TEXT";
+        public const string MAIN_PODIO_CONTACTS_TABLE_CREATE = @"DROP TABLE IF EXISTS `PodioContacts`;
+                CREATE TABLE `PodioContacts` (
+                `ProfileId` int(11) unsigned NOT NULL,
+                `Phone` varchar(45) DEFAULT NULL,
+                `Address` varchar(45) DEFAULT NULL,
+                `City` varchar(45) DEFAULT NULL,
+                `UserId` int(11) DEFAULT NULL,
+                `Name` varchar(45) DEFAULT NULL,
+                `Zip` varchar(45) DEFAULT NULL,
+                `State` varchar(45) DEFAULT NULL,
+                `Email` varchar(45) DEFAULT NULL,
+                `Type` varchar(45) DEFAULT NULL
+                ) ENGINE=InnoDB DEFAULT CHARSET=latin1;";
+        public const string INSERT_CONTACT = @"INSERT INTO PodioContacts(ProfileId,Phone,Address,City,UserId,Name,Zip,State,Email,Type)
+                                                VALUES(?ProfileId,?Phone,?Address,?City,?UserId,?Name,?Zip,?State,?Email,?Type);";
+
+        public const string ADD_TEXT_FIELD_TO_PODIO_APP_TABLE = @"`{0}` TEXT";
 
         public const string MAIN_PODIO_APP_VIEW_CREATE = @"DROP VIEW IF EXISTS `{0}View`;
                 CREATE VIEW `{0}View` AS SELECT 
@@ -164,11 +180,11 @@ namespace BrickBridge.Lambda.MySql
         public const string ADD_MAX_FIELD_STATEMENT_TO_PODIO_APP_VIEW = @"MAX((CASE
             WHEN
                 ((`PodioItemFieldViewTable`.`Type` = '{0}')
-                    AND (`PodioItemFieldViewTable`.`Name` = '{1}'))
+                    AND (`PodioItemFieldViewTable`.`Name` = QUOTE(""{1}"")))
             THEN
                 `PodioItemFieldViewTable`.`ReferencedData`
             ELSE NULL
-        END)) AS `{1}`";
+        END)) AS `{2}`";
 
 		public const string INSERT_BBC_APP = @"INSERT INTO BbcApp(BbcAppName,BbcAppId,Version) VALUES(?bbcAppName,?bbcAppId,?version);";
 		public const string INSERT_PODIO_SPACE = @"INSERT INTO PodioSpace(BbcAppId,PodioSpaceName) VALUES(?bbcAppId,?podioSpaceName);";

@@ -439,15 +439,22 @@ namespace BrickBridge.Lambda.MySql
             await ExecuteNonQuery(cmd);
         }
 
+        private string formatMySqlColumnName(string input)
+        {
+            if (input.Length > 64)
+                input = input.Substring(0, 64);
+            return input.Trim();
+        }
+
 		public async Task CreatePodioAppView(string bbcApp, string version, string spaceName, string appName)
         {
             string middle, sql = null;
             int podioAppId = -1;
 			podioAppId = await this.GetPodioAppId(bbcApp, version, spaceName, appName);
 			var fields = await this.SelectAppFields(podioAppId);
-			var fieldStrings = from f in fields
-							   where f.Type != "calculation" && f.Name != "-"
-							   select string.Format(MySqlQueries.ADD_MAX_FIELD_STATEMENT_TO_PODIO_APP_VIEW, f.Type, f.Name.Trim());
+            var fieldStrings = from f in fields
+                               where f.Type != "calculation" && f.Name != "-"
+                               select string.Format(MySqlQueries.ADD_MAX_FIELD_STATEMENT_TO_PODIO_APP_VIEW, f.Type, f.Name.Trim().Replace("\"","\\\""), formatMySqlColumnName(f.Name));
 			middle = fieldStrings.Aggregate((s1, s2) => $"{s1},{s2}");
 			sql = string.Format(MySqlQueries.MAIN_PODIO_APP_VIEW_CREATE, $"{spaceName}-{appName}", middle, podioAppId);
 			Console.WriteLine($"SQL: {sql}");
@@ -456,7 +463,7 @@ namespace BrickBridge.Lambda.MySql
 			await ExecuteNonQuery(cmd);
         }
 
-		public async Task CreatePodioAppTable(string bbcApp, string version, string spaceName, string appName)
+        public async Task CreatePodioAppTable(string bbcApp, string version, string spaceName, string appName)
         {
             string middle, sql = null;
             int podioAppId = -1;
@@ -464,7 +471,7 @@ namespace BrickBridge.Lambda.MySql
             var fields = await this.SelectAppFields(podioAppId);
             var fieldStrings = from f in fields
                                where f.Type != "calculation" && f.Name != "-"
-                               select string.Format(MySqlQueries.ADD_TEXT_FIELD_TO_PODIO_APP_TABLE, f.Name.Trim());
+                               select string.Format(MySqlQueries.ADD_TEXT_FIELD_TO_PODIO_APP_TABLE, formatMySqlColumnName(f.Name));
             middle = fieldStrings.Aggregate((s1, s2) => $"{s1},{s2}");
             sql = string.Format(MySqlQueries.MAIN_PODIO_APP_TABLE_CREATE, $"{spaceName}-{appName}", middle, podioAppId);
             Console.WriteLine($"SQL: {sql}");
@@ -473,7 +480,35 @@ namespace BrickBridge.Lambda.MySql
             await ExecuteNonQuery(cmd);
         }
 
-		#region IDisposable Support
+        public async Task CreatePodioContactsTable()
+        {
+            string sql = null;
+            sql = MySqlQueries.MAIN_PODIO_CONTACTS_TABLE_CREATE;
+            Console.WriteLine($"SQL: {sql}");
+            var cmd = new MySqlCommand(sql, _conn);
+
+            await ExecuteNonQuery(cmd);
+        }
+        public async Task<UInt64> AddContact(int profileId, int userId, string name, string email, string address, string city, string state, string zip, string type, string phone)
+        {
+            var cmd = new MySqlCommand(MySqlQueries.INSERT_CONTACT + MySqlQueries.GET_ID, _conn);
+            cmd.Parameters.Add("?ProfileId", MySqlDbType.Int32).Value = profileId;
+            cmd.Parameters.Add("?UserId", MySqlDbType.Int32).Value = userId;
+            cmd.Parameters.Add("?Name", MySqlDbType.VarChar).Value = name;
+            cmd.Parameters.Add("?Email", MySqlDbType.VarChar).Value = email;
+            cmd.Parameters.Add("?Address", MySqlDbType.VarChar).Value = address;
+            cmd.Parameters.Add("?City", MySqlDbType.VarChar).Value = city;
+            cmd.Parameters.Add("?State", MySqlDbType.VarChar).Value = state;
+            cmd.Parameters.Add("?Zip", MySqlDbType.VarChar).Value = zip;
+            cmd.Parameters.Add("?Phone", MySqlDbType.VarChar).Value = phone;
+            cmd.Parameters.Add("?Type", MySqlDbType.VarChar).Value = type;
+
+            var newItemId = await ExecuteUInt64(cmd);
+            System.Console.WriteLine($"Id = {newItemId}");
+            return newItemId;
+        }
+
+        #region IDisposable Support
         private bool disposedValue = false; // To detect redundant calls
 
         protected virtual void Dispose(bool disposing)
