@@ -10,11 +10,11 @@
       "SaasafrasAppTableCreate/1.0.0": {
         "dependencies": {
           "Amazon.Lambda.Core": "1.0.0",
-          "Amazon.Lambda.Serialization.Json": "1.3.0",
+          "Amazon.Lambda.Serialization.Json": "1.4.0",
           "PodioCore.Applications": "0.0.13",
           "PodioCore.Spaces": "0.0.6",
-          "Saasafras": "0.1.57",
-          "Saasafras.Database": "0.0.21"
+          "Saasafras": "0.1.178",
+          "Saasafras.Database": "0.1.30"
         },
         "runtime": {
           "SaasafrasAppTableCreate.dll": {}
@@ -33,10 +33,10 @@
           }
         }
       },
-      "Amazon.Lambda.Serialization.Json/1.3.0": {
+      "Amazon.Lambda.Serialization.Json/1.4.0": {
         "dependencies": {
           "Amazon.Lambda.Core": "1.0.0",
-          "Newtonsoft.Json": "11.0.2",
+          "Newtonsoft.Json": "12.0.1",
           "System.Reflection": "4.1.0",
           "System.Runtime": "4.1.0"
         },
@@ -47,7 +47,18 @@
           }
         }
       },
-      "AWSSDK.Core/3.3.22.1": {
+      "AWSSDK.CloudWatchLogs/3.3.7.1": {
+        "dependencies": {
+          "AWSSDK.Core": "3.3.29.13"
+        },
+        "runtime": {
+          "lib/netstandard1.3/AWSSDK.CloudWatchLogs.dll": {
+            "assemblyVersion": "3.3.0.0",
+            "fileVersion": "3.3.7.1"
+          }
+        }
+      },
+      "AWSSDK.Core/3.3.29.13": {
         "dependencies": {
           "Microsoft.CSharp": "4.0.1",
           "System.Net.Requests": "4.0.11",
@@ -58,40 +69,48 @@
         "runtime": {
           "lib/netstandard1.3/AWSSDK.Core.dll": {
             "assemblyVersion": "3.3.0.0",
-            "fileVersion": "3.3.22.1"
+            "fileVersion": "3.3.29.13"
           }
         }
       },
-      "AWSSDK.DynamoDBv2/3.3.7.1": {
+      "AWSSDK.DynamoDBv2/3.3.15.1": {
         "dependencies": {
-          "AWSSDK.Core": "3.3.22.1"
+          "AWSSDK.Core": "3.3.29.13"
         },
         "runtime": {
           "lib/netstandard1.3/AWSSDK.DynamoDBv2.dll": {
             "assemblyVersion": "3.3.0.0",
-            "fileVersion": "3.3.7.1"
+            "fileVersion": "3.3.15.1"
           }
         }
       },
-      "AWSSDK.Lambda/3.3.12": {
+      "AWSSDK.Lambda/3.3.19.1": {
         "dependencies": {
-          "AWSSDK.Core": "3.3.22.1"
+          "AWSSDK.Core": "3.3.29.13"
         },
         "runtime": {
           "lib/netstandard1.3/AWSSDK.Lambda.dll": {
             "assemblyVersion": "3.3.0.0",
-            "fileVersion": "3.3.12.0"
+            "fileVersion": "3.3.19.1"
           }
         }
       },
-      "AWSSDK.SimpleNotificationService/3.3.0.29": {
+      "AWSSDK.SimpleNotificationService/3.3.3.3": {
         "dependencies": {
-          "AWSSDK.Core": "3.3.22.1"
+          "AWSSDK.Core": "3.3.29.13"
         },
         "runtime": {
           "lib/netstandard1.3/AWSSDK.SimpleNotificationService.dll": {
             "assemblyVersion": "3.3.0.0",
-            "fileVersion": "3.3.0.29"
+            "fileVersion": "3.3.3.3"
+          }
+        }
+      },
+      "Google.Protobuf/3.5.1": {
+        "runtime": {
+          "lib/netstandard1.0/Google.Protobuf.dll": {
+            "assemblyVersion": "3.5.1.0",
+            "fileVersion": "3.5.1.0"
           }
         }
       },
@@ -115,30 +134,32 @@
           "System.Threading": "4.0.11"
         }
       },
-      "MySql.Data/6.10.6": {
+      "MySql.Data/8.0.12": {
         "dependencies": {
-          "System.Configuration.ConfigurationManager": "4.4.0",
-          "System.Security.Permissions": "4.4.0",
-          "System.Text.Encoding.CodePages": "4.0.1"
+          "Google.Protobuf": "3.5.1",
+          "System.Configuration.ConfigurationManager": "4.4.1",
+          "System.Security.Permissions": "4.4.1",
+          "System.Text.Encoding.CodePages": "4.4.0"
         },
         "runtime": {
           "lib/netcoreapp2.0/MySql.Data.dll": {
-            "assemblyVersion": "6.10.6.0",
-            "fileVersion": "6.10.6.0"
+            "assemblyVersion": "8.0.12.0",
+            "fileVersion": "8.0.12.0"
           }
         }
       },
-      "Newtonsoft.Json/11.0.2": {
+      "Newtonsoft.Json/12.0.1": {
         "runtime": {
           "lib/netstandard2.0/Newtonsoft.Json.dll": {
-            "assemblyVersion": "11.0.0.0",
-            "fileVersion": "11.0.2.21924"
+            "assemblyVersion": "12.0.0.0",
+            "fileVersion": "12.0.1.22727"
           }
         }
       },
+      "NuGet.Build.Packaging/0.2.2": {},
       "PodioCore.Applications/0.0.13": {
         "dependencies": {
-          "PodioCore.Async": "0.0.14"
+          "PodioCore.Async": "0.0.28"
         },
         "runtime": {
           "lib/netcoreapp2.0/PodioCore.Applications.dll": {
@@ -151,9 +172,9 @@
           }
         }
       },
-      "PodioCore.Async/0.0.14": {
+      "PodioCore.Async/0.0.28": {
         "dependencies": {
-          "Newtonsoft.Json": "11.0.2"
+          "Newtonsoft.Json": "12.0.1"
         },
         "runtime": {
           "lib/netcoreapp2.0/PodioCore.Async.dll": {
@@ -168,7 +189,7 @@
       },
       "PodioCore.Spaces/0.0.6": {
         "dependencies": {
-          "PodioCore.Async": "0.0.14"
+          "PodioCore.Async": "0.0.28"
         },
         "runtime": {
           "lib/netcoreapp2.0/PodioCore.Spaces.dll": {
@@ -184,36 +205,20 @@
       "runtime.native.System/4.0.0": {},
       "runtime.native.System.Net.Http/4.0.1": {},
       "runtime.native.System.Security.Cryptography/4.0.0": {},
-      "Saasafras/0.1.57": {
+      "Saasafras/0.1.178": {
         "dependencies": {
-          "AWSSDK.DynamoDBv2": "3.3.7.1",
-          "AWSSDK.Lambda": "3.3.12",
-          "AWSSDK.SimpleNotificationService": "3.3.0.29",
+          "AWSSDK.CloudWatchLogs": "3.3.7.1",
+          "AWSSDK.DynamoDBv2": "3.3.15.1",
+          "AWSSDK.Lambda": "3.3.19.1",
+          "AWSSDK.SimpleNotificationService": "3.3.3.3",
           "Amazon.Lambda.Core": "1.0.0",
-          "Newtonsoft.Json": "11.0.2",
-          "PodioCore.Async": "0.0.14"
+          "Newtonsoft.Json": "12.0.1",
+          "PodioCore.Async": "0.0.28"
         },
         "runtime": {
           "lib/netcoreapp2.1/BbcServiceClient.dll": {
             "assemblyVersion": "1.0.0.0",
             "fileVersion": "1.0.0.0"
-          }
-        }
-      },
-      "Saasafras.Database/0.0.21": {
-        "dependencies": {
-          "Amazon.Lambda.Core": "1.0.0",
-          "Amazon.Lambda.Serialization.Json": "1.3.0",
-          "MySql.Data": "6.10.6"
-        },
-        "runtime": {
-          "lib/netcoreapp2.0/PodioDatabaseHandlers.dll": {
-            "assemblyVersion": "1.0.0.0",
-            "fileVersion": "1.0.0.0"
-          },
-          "lib/netcoreapp2.0/System.ComponentModel.Composition.dll": {
-            "assemblyVersion": "4.0.0.0",
-            "fileVersion": "4.6.25519.3"
           }
         }
       },
@@ -236,14 +241,14 @@
           "System.Threading.Tasks": "4.0.11"
         }
       },
-      "System.Configuration.ConfigurationManager/4.4.0": {
+      "System.Configuration.ConfigurationManager/4.4.1": {
         "dependencies": {
           "System.Security.Cryptography.ProtectedData": "4.4.0"
         },
         "runtime": {
           "lib/netstandard2.0/System.Configuration.ConfigurationManager.dll": {
             "assemblyVersion": "4.0.0.0",
-            "fileVersion": "4.6.25519.3"
+            "fileVersion": "4.6.25921.2"
           }
         }
       },
@@ -644,14 +649,14 @@
           "runtime.native.System.Security.Cryptography": "4.0.0"
         }
       },
-      "System.Security.Permissions/4.4.0": {
+      "System.Security.Permissions/4.4.1": {
         "dependencies": {
           "System.Security.AccessControl": "4.4.0"
         },
         "runtime": {
           "lib/netstandard2.0/System.Security.Permissions.dll": {
             "assemblyVersion": "4.0.0.0",
-            "fileVersion": "4.6.25519.3"
+            "fileVersion": "4.6.25921.2"
           }
         }
       },
@@ -661,24 +666,11 @@
           "System.Runtime": "4.1.0"
         }
       },
-      "System.Text.Encoding.CodePages/4.0.1": {
-        "dependencies": {
-          "System.Collections": "4.0.11",
-          "System.Globalization": "4.0.11",
-          "System.IO": "4.1.0",
-          "System.Reflection": "4.1.0",
-          "System.Resources.ResourceManager": "4.0.1",
-          "System.Runtime": "4.1.0",
-          "System.Runtime.Extensions": "4.1.0",
-          "System.Runtime.Handles": "4.0.1",
-          "System.Runtime.InteropServices": "4.1.0",
-          "System.Text.Encoding": "4.0.11",
-          "System.Threading": "4.0.11"
-        },
+      "System.Text.Encoding.CodePages/4.4.0": {
         "runtime": {
-          "runtimes/unix/lib/netstandard1.3/System.Text.Encoding.CodePages.dll": {
-            "assemblyVersion": "4.0.1.0",
-            "fileVersion": "1.0.24212.1"
+          "lib/netstandard2.0/System.Text.Encoding.CodePages.dll": {
+            "assemblyVersion": "4.1.0.0",
+            "fileVersion": "4.6.25519.3"
           }
         }
       },
@@ -697,6 +689,17 @@
         "dependencies": {
           "System.Runtime": "4.1.0"
         }
+      },
+      "Saasafras.Database/0.1.30": {
+        "dependencies": {
+          "Amazon.Lambda.Core": "1.0.0",
+          "Amazon.Lambda.Serialization.Json": "1.4.0",
+          "MySql.Data": "8.0.12",
+          "NuGet.Build.Packaging": "0.2.2"
+        },
+        "runtime": {
+          "PodioDatabaseHandlers.dll": {}
+        }
       }
     }
   },
@@ -713,40 +716,54 @@
       "path": "amazon.lambda.core/1.0.0",
       "hashPath": "amazon.lambda.core.1.0.0.nupkg.sha512"
     },
-    "Amazon.Lambda.Serialization.Json/1.3.0": {
+    "Amazon.Lambda.Serialization.Json/1.4.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-i8fUj5rOGwoJ62Q0YBEbtM4/aXdJ1ClQxb6b6fzqiwp87Rr+WK7bASVbt5XfNEu5b9yERE8VrA25cvBS9Foibg==",
-      "path": "amazon.lambda.serialization.json/1.3.0",
-      "hashPath": "amazon.lambda.serialization.json.1.3.0.nupkg.sha512"
+      "sha512": "sha512-6onwMtoj78Fy/LKTAeTxxEM+zPHG+UiIS1eiQX4TQsE9QNM0CvwRY0bPV9fP+ADVOQ6rdpXamh+CaGKwnpa07A==",
+      "path": "amazon.lambda.serialization.json/1.4.0",
+      "hashPath": "amazon.lambda.serialization.json.1.4.0.nupkg.sha512"
     },
-    "AWSSDK.Core/3.3.22.1": {
+    "AWSSDK.CloudWatchLogs/3.3.7.1": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-66fpTVA70jfbo5LNBIpL9ozZ02wuthDhlUokpef5/eXPIeGy1B3iffqPwiup/0kCNB8stNOTZkPu5YTplFryAw==",
-      "path": "awssdk.core/3.3.22.1",
-      "hashPath": "awssdk.core.3.3.22.1.nupkg.sha512"
+      "sha512": "sha512-zT14HhrhqR1uVul8/GNAXtXC/bB/278WrQ6LK0vF/SRKyAnAHn11fRwag2fazBhLQrAT2IGhGj8JrUYpXXVMZQ==",
+      "path": "awssdk.cloudwatchlogs/3.3.7.1",
+      "hashPath": "awssdk.cloudwatchlogs.3.3.7.1.nupkg.sha512"
     },
-    "AWSSDK.DynamoDBv2/3.3.7.1": {
+    "AWSSDK.Core/3.3.29.13": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-deLsJFWkzXufwERso4kcmO6PTTzZ5QfVDIEkMA08SafAVYUQLDjPV4G/NkK8tIotkwHK06/1A58oJN30G+Z/Rw==",
-      "path": "awssdk.dynamodbv2/3.3.7.1",
-      "hashPath": "awssdk.dynamodbv2.3.3.7.1.nupkg.sha512"
+      "sha512": "sha512-SlugaA++GLaFHIVkdQe5ASEVdGcvcnt9nrf0g+gHnzGMftWUlTuZ4UcHs9V0MhpSqQCjvjwj7Zq2Uv2kMpfEeQ==",
+      "path": "awssdk.core/3.3.29.13",
+      "hashPath": "awssdk.core.3.3.29.13.nupkg.sha512"
     },
-    "AWSSDK.Lambda/3.3.12": {
+    "AWSSDK.DynamoDBv2/3.3.15.1": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-VlKw1BRPImTPDpMionzthXugam2c+vqqpnygx4sVz4tLZkiUCocF1KIeRy2ubN4hvoqsMwI7RHwbiA2wplTA1Q==",
-      "path": "awssdk.lambda/3.3.12",
-      "hashPath": "awssdk.lambda.3.3.12.nupkg.sha512"
+      "sha512": "sha512-6G462CS/dNz+FenLdTuFl7V7hHK5gSXetp5JFHvWGBuFDHqt+AVfpzKwbKxyK8jytTufqRZmaZfdwphpCCsTMA==",
+      "path": "awssdk.dynamodbv2/3.3.15.1",
+      "hashPath": "awssdk.dynamodbv2.3.3.15.1.nupkg.sha512"
     },
-    "AWSSDK.SimpleNotificationService/3.3.0.29": {
+    "AWSSDK.Lambda/3.3.19.1": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-+xU/tdL64ElgKgh6y0ABmh5GvcO8uB8YXA4HTYvzPMwF3kEuw0TR7/17oUdYfYWT+TUdH4pleK62Gw07abY5pA==",
-      "path": "awssdk.simplenotificationservice/3.3.0.29",
-      "hashPath": "awssdk.simplenotificationservice.3.3.0.29.nupkg.sha512"
+      "sha512": "sha512-5BUjB84zSjsoKqHN/c7bBrQMZgUOCf4dxJTaiPiCRGG4gQYfX0PdxkJmhLoz9WYdUICqlexJtXl7pQPPP/5wEw==",
+      "path": "awssdk.lambda/3.3.19.1",
+      "hashPath": "awssdk.lambda.3.3.19.1.nupkg.sha512"
+    },
+    "AWSSDK.SimpleNotificationService/3.3.3.3": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-HHRW4CiCg3hrKZ04Of/6WS/1ujLTksFa+uzdWeNadDnvMovmg1BBD4UOK13FdaqKUn/LAaVTVPxKXJT7bP0hqA==",
+      "path": "awssdk.simplenotificationservice/3.3.3.3",
+      "hashPath": "awssdk.simplenotificationservice.3.3.3.3.nupkg.sha512"
+    },
+    "Google.Protobuf/3.5.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-f2k1VNaB9bfvEsvARzzEL1TZiIpL33KKK3JMH7UANlPlJVptuvsk4qpBZEnz0pORWZOdUHlVwMQuUzFqjJYCxA==",
+      "path": "google.protobuf/3.5.1",
+      "hashPath": "google.protobuf.3.5.1.nupkg.sha512"
     },
     "Microsoft.CSharp/4.0.1": {
       "type": "package",
@@ -755,19 +772,26 @@
       "path": "microsoft.csharp/4.0.1",
       "hashPath": "microsoft.csharp.4.0.1.nupkg.sha512"
     },
-    "MySql.Data/6.10.6": {
+    "MySql.Data/8.0.12": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-dcod4CxVkrRANjfVWS7um5HTyLFJhyBGp5hVSdmrhhZZiP9cX3ZNfoZ0W88f6lDWExJuILsAIbctZirQ9mpjQQ==",
-      "path": "mysql.data/6.10.6",
-      "hashPath": "mysql.data.6.10.6.nupkg.sha512"
+      "sha512": "sha512-I2jGfuyeomrGJ+N9O+vuV2ucyeayf/tMFREKPdjUcs1/wUF0t+WgUnnzJmJl4sNePNR1fEvAGaGbVAo4uLSF2A==",
+      "path": "mysql.data/8.0.12",
+      "hashPath": "mysql.data.8.0.12.nupkg.sha512"
     },
-    "Newtonsoft.Json/11.0.2": {
+    "Newtonsoft.Json/12.0.1": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-IvJe1pj7JHEsP8B8J8DwlMEx8UInrs/x+9oVY+oCD13jpLu4JbJU2WCIsMRn5C4yW9+DgkaO8uiVE5VHKjpmdQ==",
-      "path": "newtonsoft.json/11.0.2",
-      "hashPath": "newtonsoft.json.11.0.2.nupkg.sha512"
+      "sha512": "sha512-pBR3wCgYWZGiaZDYP+HHYnalVnPJlpP1q55qvVb+adrDHmFMDc1NAKio61xTwftK3Pw5h7TZJPJEEVMd6ty8rg==",
+      "path": "newtonsoft.json/12.0.1",
+      "hashPath": "newtonsoft.json.12.0.1.nupkg.sha512"
+    },
+    "NuGet.Build.Packaging/0.2.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-0NpDbrsJ+kTKtOEQH0RVbZmpsnCOBHkznA9Kov+u2xul+e2M10PCUO5a4ATZbuStOMcS/lSBYae/W/pCtJOL+Q==",
+      "path": "nuget.build.packaging/0.2.2",
+      "hashPath": "nuget.build.packaging.0.2.2.nupkg.sha512"
     },
     "PodioCore.Applications/0.0.13": {
       "type": "package",
@@ -776,12 +800,12 @@
       "path": "podiocore.applications/0.0.13",
       "hashPath": "podiocore.applications.0.0.13.nupkg.sha512"
     },
-    "PodioCore.Async/0.0.14": {
+    "PodioCore.Async/0.0.28": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-1Fy7wJrn/LBJaMPPhVaFaC04atwfFBg1URAWfDc8HkEtzXj61efCp54llV4XYgN+vJnCVjxfvDZK2ghkT7rk2A==",
-      "path": "podiocore.async/0.0.14",
-      "hashPath": "podiocore.async.0.0.14.nupkg.sha512"
+      "sha512": "sha512-BnlCAYwRefzKAnNwf70YVIfOkeZJoc/wwa4MPL24imKDErKNo7SkWD5f96Uuq0BcvqwctQ2OI6lrid8PxxKApw==",
+      "path": "podiocore.async/0.0.28",
+      "hashPath": "podiocore.async.0.0.28.nupkg.sha512"
     },
     "PodioCore.Spaces/0.0.6": {
       "type": "package",
@@ -811,19 +835,12 @@
       "path": "runtime.native.system.security.cryptography/4.0.0",
       "hashPath": "runtime.native.system.security.cryptography.4.0.0.nupkg.sha512"
     },
-    "Saasafras/0.1.57": {
+    "Saasafras/0.1.178": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-I1vnySipO8jCeRWUyl+v8Vjr5Zc4Ebhc5HYMkSZI/WN6/d2mYbiutJ47UzarAW4TmX8yKeSptBcuM72ejPdeGw==",
-      "path": "saasafras/0.1.57",
-      "hashPath": "saasafras.0.1.57.nupkg.sha512"
-    },
-    "Saasafras.Database/0.0.21": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-SgFBIphXJGPvsnEUWnVFlirHnK+JIeFoD8t657wPJ/cz50mos8ocY0xYd8qjDuep6tPehonqfynoBQlWVJWafQ==",
-      "path": "saasafras.database/0.0.21",
-      "hashPath": "saasafras.database.0.0.21.nupkg.sha512"
+      "sha512": "sha512-95JtIlMxQi+zQj196BMH+9efP/7qUNAGqLX3AWi/LPaofL87lyHzmISkO1ty7Cj8qgBYZb+AlZI3VMbWPZnS9A==",
+      "path": "saasafras/0.1.178",
+      "hashPath": "saasafras.0.1.178.nupkg.sha512"
     },
     "System.Collections/4.0.11": {
       "type": "package",
@@ -839,12 +856,12 @@
       "path": "system.collections.concurrent/4.0.12",
       "hashPath": "system.collections.concurrent.4.0.12.nupkg.sha512"
     },
-    "System.Configuration.ConfigurationManager/4.4.0": {
+    "System.Configuration.ConfigurationManager/4.4.1": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-gWwQv/Ug1qWJmHCmN17nAbxJYmQBM/E94QxKLksvUiiKB1Ld3Sc/eK1lgmbSjDFxkQhVuayI/cGFZhpBSodLrg==",
-      "path": "system.configuration.configurationmanager/4.4.0",
-      "hashPath": "system.configuration.configurationmanager.4.4.0.nupkg.sha512"
+      "sha512": "sha512-jz3TWKMAeuDEyrPCK5Jyt4bzQcmzUIMcY9Ud6PkElFxTfnsihV+9N/UCqvxe1z5gc7jMYAnj7V1COMS9QKIuHQ==",
+      "path": "system.configuration.configurationmanager/4.4.1",
+      "hashPath": "system.configuration.configurationmanager.4.4.1.nupkg.sha512"
     },
     "System.Console/4.0.0": {
       "type": "package",
@@ -1126,12 +1143,12 @@
       "path": "system.security.cryptography.x509certificates/4.1.0",
       "hashPath": "system.security.cryptography.x509certificates.4.1.0.nupkg.sha512"
     },
-    "System.Security.Permissions/4.4.0": {
+    "System.Security.Permissions/4.4.1": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-ArK+Kh7BSqWhspqO3qe8R25MeUzBm3ZdWbYiN6Q0kLO3nR4dLeZzS03C0QUI/470w7pGRm7lUZ9sjfDQKJjRcQ==",
-      "path": "system.security.permissions/4.4.0",
-      "hashPath": "system.security.permissions.4.4.0.nupkg.sha512"
+      "sha512": "sha512-l8IxQ9mEAkKv85uoEcjcYhrh+yTLZtLgNqb2T7QChTdKXh45EUnmKd+Ckdt1D+VYW2dk2Pb5MT+0zwQ74Jd2Xg==",
+      "path": "system.security.permissions/4.4.1",
+      "hashPath": "system.security.permissions.4.4.1.nupkg.sha512"
     },
     "System.Security.Principal.Windows/4.4.0": {
       "type": "package",
@@ -1147,12 +1164,12 @@
       "path": "system.text.encoding/4.0.11",
       "hashPath": "system.text.encoding.4.0.11.nupkg.sha512"
     },
-    "System.Text.Encoding.CodePages/4.0.1": {
+    "System.Text.Encoding.CodePages/4.4.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-h4z6rrA/hxWf4655D18IIZ0eaLRa3tQC/j+e26W+VinIHY0l07iEXaAvO0YSYq3MvCjMYy8Zs5AdC1sxNQOB7Q==",
-      "path": "system.text.encoding.codepages/4.0.1",
-      "hashPath": "system.text.encoding.codepages.4.0.1.nupkg.sha512"
+      "sha512": "sha512-6JX7ZdaceBiLKLkYt8zJcp4xTJd1uYyXXEkPw6mnlUIjh1gZPIVKPtRXPmY5kLf6DwZmf5YLwR3QUrRonl7l0A==",
+      "path": "system.text.encoding.codepages/4.4.0",
+      "hashPath": "system.text.encoding.codepages.4.4.0.nupkg.sha512"
     },
     "System.Threading/4.0.11": {
       "type": "package",
@@ -1174,6 +1191,11 @@
       "sha512": "sha512-gIdJqDXlOr5W9zeqFErLw3dsOsiShSCYtF9SEHitACycmvNvY8odf9kiKvp6V7aibc8C4HzzNBkWXjyfn7plbQ==",
       "path": "system.threading.thread/4.0.0",
       "hashPath": "system.threading.thread.4.0.0.nupkg.sha512"
+    },
+    "Saasafras.Database/0.1.30": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
     }
   }
 }

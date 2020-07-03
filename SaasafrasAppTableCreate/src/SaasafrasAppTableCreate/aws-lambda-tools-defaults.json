@@ -16,4 +16,6 @@
   "function-memory-size" : 256,
   "function-timeout" : 30,
   "function-handler": "SaasafrasAppTableCreate::BrickBridge.Lambda.SaasafrasAppTableCreateFunction::FunctionHandler"
+  "function-name": "SaasafrasAppTableCreate",
+  "function-role" : "Lambda_VPC_Access"
 }
