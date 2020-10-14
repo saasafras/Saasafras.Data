@@ -337,9 +337,6 @@ BEGIN
   DECLARE VIEWNAME VARCHAR(200);
   DECLARE TABLENAME VARCHAR(200);
   DECLARE cur1 CURSOR FOR SELECT DISTINCT PodioSpaceName, PodioAppName FROM PodioAppView WHERE BbcAppId = BbcAppId AND Version = Version;
-  TRUNCATE TABLE podioTest.MasterClientProfile;
-INSERT INTO podioTest.MasterClientProfile
-SELECT * FROM podioTest.MasterClientProfileView;
 
   OPEN cur1; 
   read_loop: LOOP
